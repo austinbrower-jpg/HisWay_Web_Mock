@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/sections/PagePlaceholder";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { QuoteForm } from "@/components/sections/quote/QuoteForm";
 
 export const metadata: Metadata = {
   title: "Request a Quote",
@@ -9,17 +10,12 @@ export const metadata: Metadata = {
 
 export default function QuotePage() {
   return (
-    <PagePlaceholder
-      title="Request a Quote"
-      lead="The detailed quote form is next in the build. Until it lands here, the fastest quote is a direct call or email to the shop."
-      planned={[
-        "Project type and service selection",
-        "Quantity and sizing details",
-        "Desired completion date",
-        "Budget range guidance",
-        "Artwork upload",
-        "Preferred contact method",
-      ]}
-    />
+    <>
+      <PageHeader
+        title="Request a Quote"
+        lead="Tell us about your project. The more details you provide, the faster we can get you an accurate price."
+      />
+      <QuoteForm />
+    </>
   );
 }

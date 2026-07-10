@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { Service, Project } from "@/types";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Check, ChevronDown } from "lucide-react";
@@ -81,89 +82,25 @@ export default async function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      {/* Overview + use cases */}
-      <section className="bg-paper py-16 lg:py-20">
-        <div className="container-site grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-6">
-            <h2 className="heading-display text-4xl text-ink">Overview</h2>
-            {service.overview.map((paragraph) => (
-              <p key={paragraph.slice(0, 32)} className="mt-5 leading-relaxed text-muted">
-                {paragraph}
-              </p>
-            ))}
-          </Reveal>
-          <Reveal className="lg:col-span-6" delay={0.08}>
-            <h2 className="heading-display text-4xl text-ink">Good fit for</h2>
-            <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2">
-              {service.useCases.map((useCase) => (
-                <li key={useCase} className="flex items-start gap-2.5">
-                  <Check className="mt-1 h-4 w-4 shrink-0 text-accent-deep" aria-hidden="true" />
-                  <span className="leading-snug text-ink">{useCase}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Options */}
-      <section className="bg-paper-2 py-16 lg:py-20">
-        <div className="container-site">
-          <Reveal>
-            <SectionHeading title="What we offer" />
-          </Reveal>
-          <Reveal className="mt-8" delay={0.08}>
-            <ul
-              className={cn(
-                "grid gap-px border border-line bg-line sm:grid-cols-2",
-                service.options.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3",
-              )}
-            >
-              {service.options.map((option, index) => {
-                const isLast = index === service.options.length - 1;
-                const count = service.options.length;
-                return (
-                  <li
-                    key={option.name}
-                    // Size the last tile so every grid row fills completely.
-                    className={cn(
-                      "bg-paper p-6",
-                      isLast && count % 2 === 1 && "sm:col-span-2",
-                      isLast && count % 3 === 2 && count !== 4 && "lg:col-span-2",
-                      isLast && count % 3 === 1 && count !== 4 && "lg:col-span-3",
-                    )}
-                  >
-                    <h3 className="font-display text-xl font-semibold uppercase tracking-wide text-ink">
-                      {option.name}
-                    </h3>
-                    <p className="mt-2 leading-relaxed text-muted">{option.description}</p>
-                  </li>
-                );
-              })}
-            </ul>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Related work */}
-      {relatedProjects.length > 0 && (
-        <section className="bg-paper py-16 lg:py-20">
-          <div className="container-site">
-            <Reveal>
-              <SectionHeading title="Related work" />
-            </Reveal>
-            <div className="mt-8 grid gap-8 sm:grid-cols-2">
-              {relatedProjects.map((project, index) => (
-                <Reveal key={project.slug} delay={index * 0.08}>
-                  <ProjectCard
-                    project={project}
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                  />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* Sections rendering based on slug for variety */}
+      {slug === "graphic-design-content" || slug === "custom-signs" ? (
+        <>
+          <OptionsSection service={service} />
+          <OverviewSection service={service} />
+          {relatedProjects.length > 0 && <RelatedWorkSection projects={relatedProjects} />}
+        </>
+      ) : slug === "promotional-products" || slug === "screen-printing-apparel" ? (
+        <>
+          {relatedProjects.length > 0 && <RelatedWorkSection projects={relatedProjects} />}
+          <OverviewSection service={service} />
+          <OptionsSection service={service} />
+        </>
+      ) : (
+        <>
+          <OverviewSection service={service} />
+          <OptionsSection service={service} />
+          {relatedProjects.length > 0 && <RelatedWorkSection projects={relatedProjects} />}
+        </>
       )}
 
       <Process heading="How your project will run" />
@@ -200,5 +137,96 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <QuoteCta heading={`Ready to start your ${service.projectNoun} project?`} />
     </>
+  );
+}
+
+function OverviewSection({ service }: { service: Service }) {
+  return (
+    <section className="bg-paper py-16 lg:py-20">
+      <div className="container-site grid gap-12 lg:grid-cols-12">
+        <Reveal className="lg:col-span-6">
+          <h2 className="heading-display text-4xl text-ink">Overview</h2>
+          {service.overview.map((paragraph: string) => (
+            <p key={paragraph.slice(0, 32)} className="mt-5 leading-relaxed text-muted">
+              {paragraph}
+            </p>
+          ))}
+        </Reveal>
+        <Reveal className="lg:col-span-6" delay={0.08}>
+          <h2 className="heading-display text-4xl text-ink">Good fit for</h2>
+          <ul className="mt-5 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+            {service.useCases.map((useCase: string) => (
+              <li key={useCase} className="flex items-start gap-2.5">
+                <Check className="mt-1 h-4 w-4 shrink-0 text-accent-deep" aria-hidden="true" />
+                <span className="leading-snug text-ink">{useCase}</span>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function OptionsSection({ service }: { service: Service }) {
+  return (
+    <section className="bg-paper-2 py-16 lg:py-20">
+      <div className="container-site">
+        <Reveal>
+          <SectionHeading title="What we offer" />
+        </Reveal>
+        <Reveal className="mt-8" delay={0.08}>
+          <ul
+            className={cn(
+              "grid gap-px border border-line bg-line sm:grid-cols-2",
+              service.options.length === 4 ? "lg:grid-cols-2" : "lg:grid-cols-3",
+            )}
+          >
+            {service.options.map((option, index: number) => {
+              const isLast = index === service.options.length - 1;
+              const count = service.options.length;
+              return (
+                <li
+                  key={option.name}
+                  className={cn(
+                    "bg-paper p-6",
+                    isLast && count % 2 === 1 && "sm:col-span-2",
+                    isLast && count % 3 === 2 && count !== 4 && "lg:col-span-2",
+                    isLast && count % 3 === 1 && count !== 4 && "lg:col-span-3",
+                  )}
+                >
+                  <h3 className="font-display text-xl font-semibold uppercase tracking-wide text-ink">
+                    {option.name}
+                  </h3>
+                  <p className="mt-2 leading-relaxed text-muted">{option.description}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function RelatedWorkSection({ projects }: { projects: Project[] }) {
+  return (
+    <section className="bg-paper py-16 lg:py-20">
+      <div className="container-site">
+        <Reveal>
+          <SectionHeading title="Related work" />
+        </Reveal>
+        <div className="mt-8 grid gap-8 sm:grid-cols-2">
+          {projects.map((project, index: number) => (
+            <Reveal key={project.slug} delay={index * 0.08}>
+              <ProjectCard
+                project={project}
+                sizes="(min-width: 640px) 50vw, 100vw"
+              />
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

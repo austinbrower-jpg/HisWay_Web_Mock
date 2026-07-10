@@ -17,27 +17,30 @@ export function Hero() {
             From storefront signage and vehicle graphics to branded apparel and promo
             products, HisWay takes your project from concept through completion.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <ButtonLink href="/quote" variant="primary">
+          <div className="mt-8 flex flex-col sm:flex-row items-center sm:items-stretch gap-4">
+            <ButtonLink href="/quote" variant="primary" className="w-full sm:w-auto">
               Request a Quote
             </ButtonLink>
-            <ButtonLink href="/work" variant="outline">
+            <ButtonLink href="/work" variant="outline" className="w-full sm:w-auto">
               View Our Work
             </ButtonLink>
           </div>
-          <Link
-            href="/promotional-products"
-            className="group mt-6 inline-flex items-center gap-2 font-medium text-paper/70 transition-colors hover:text-accent"
-          >
-            Browse Promotional Products
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </Link>
+          <div className="mt-6">
+            <Link
+              href="/promotional-products"
+              className="group inline-flex items-center gap-2 font-display text-base font-semibold uppercase tracking-wide text-paper/80 transition-colors hover:text-accent"
+            >
+              Browse Promotional Products
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </Link>
+          </div>
         </Reveal>
 
-        <Reveal className="lg:col-span-5" delay={0.12}>
+        <Reveal className="lg:col-span-5 relative" delay={0.12}>
+          <div className="absolute -inset-4 md:-inset-6 bg-ink-2 -z-10" aria-hidden="true" />
           <PhotoFrame
             src="/images/placeholders/press-floor.svg"
             alt="Placeholder for a photo of the HisWay production floor"
@@ -46,6 +49,10 @@ export function Hero() {
             priority
             marks
           />
+          <div className="absolute -bottom-6 -right-2 md:-right-6 bg-accent text-ink px-6 py-4 border-4 border-ink shadow-lg">
+             <p className="font-display font-bold uppercase tracking-wider text-sm md:text-base">Est. 2018</p>
+             <p className="font-sans font-medium text-xs mt-0.5">San Antonio, TX</p>
+          </div>
         </Reveal>
       </div>
     </section>
