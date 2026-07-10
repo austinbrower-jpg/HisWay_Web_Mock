@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-label="Workshop placeholder">
+<rect width="1600" height="1200" fill="#EFEBE2"/>
+<defs><pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DDD7C9" stroke-width="1"/></pattern></defs>
+<rect width="1600" height="1200" fill="url(#g)"/>
+<path d="M10 10 h18 M10 10 v18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<path d="M1590 10 h-18 M1590 10 v18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<path d="M10 1190 h18 M10 1190 v-18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<path d="M1590 1190 h-18 M1590 1190 v-18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<g font-family="ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">
+<text x="800" y="586.2" font-size="46" fill="#6E6A61" letter-spacing="2">WORKSHOP</text>
+<text x="800" y="650.6" font-size="29" fill="#8A857A" letter-spacing="3">PHOTO PLACEHOLDER · 1600 × 1200</text>
+</g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Service area map placeholder">
+<rect width="1600" height="900" fill="#EFEBE2"/>
+<defs><pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#DDD7C9" stroke-width="1"/></pattern></defs>
+<rect width="1600" height="900" fill="url(#g)"/>
+<path d="M10 10 h18 M10 10 v18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<path d="M1590 10 h-18 M1590 10 v18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<path d="M10 890 h18 M10 890 v-18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<path d="M1590 890 h-18 M1590 890 v-18" stroke="#8A857A" stroke-width="2" fill="none"/>
+<g font-family="ui-monospace, Menlo, Consolas, monospace" text-anchor="middle">
+<text x="800" y="439.5" font-size="35" fill="#6E6A61" letter-spacing="2">SERVICE AREA MAP</text>
+<text x="800" y="488.5" font-size="22" fill="#8A857A" letter-spacing="3">PHOTO PLACEHOLDER · 1600 × 900</text>
+</g>
+</svg>
