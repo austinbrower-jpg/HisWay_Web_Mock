@@ -51,9 +51,9 @@ export function Hero() {
           />
           <div className="absolute -bottom-6 right-0 border-4 border-ink bg-accent px-5 py-3 text-ink shadow-lg sm:px-6 sm:py-4 md:-right-4 lg:-right-6">
             <p className="font-display text-sm font-bold uppercase tracking-wider md:text-base">
-              Est. 2018
+              San Antonio Made
             </p>
-            <p className="mt-0.5 font-sans text-xs font-medium">San Antonio, TX</p>
+            <p className="mt-0.5 font-sans text-xs font-medium">Built Hands-On</p>
           </div>
         </Reveal>
       </div>

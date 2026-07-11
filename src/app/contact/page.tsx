@@ -7,7 +7,7 @@ import { ContactForm } from "@/components/sections/contact/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Reach HisWay Press or Print by phone or email for signs, apparel, vehicle graphics, and promotional products.",
+    "Call or email HisWay Press or Print in San Antonio for custom signs, apparel, vehicle graphics, and promotional products.",
 };
 
 export default function ContactPage() {
