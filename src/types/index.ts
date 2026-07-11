@@ -68,6 +68,22 @@ export interface ProjectImage {
   alt: string;
 }
 
+/**
+ * Portfolio project model.
+ *
+ * VERIFICATION REQUIRED before publishing real customer work:
+ * - customerName, location: confirm permission to name the customer/place
+ * - customerPermission: must be "granted" before public launch of that project
+ * - completionDate, materials, decorationMethod: confirm with production records
+ * - socialPostUrl, googleBusinessProfilePostUrl: only after those posts exist
+ * - connectedReviewId: only after a verified review is linked in reviews.ts
+ * - seoTitle, seoDescription: write from real project facts, not invented claims
+ *
+ * Current placeholder projects intentionally leave these fields unset.
+ * Do not invent customer names, results, dates, or permissions.
+ */
+export type CustomerPermissionStatus = "pending" | "granted" | "declined" | "not-requested";
+
 export interface Project {
   slug: string;
   title: string;
@@ -80,6 +96,30 @@ export interface Project {
   images: ProjectImage[];
   related: string[];
   featured?: boolean;
+  /** Optional verified customer/company name. Leave unset until permission is granted. */
+  customerName?: string | null;
+  /** Customer industry label, when known. */
+  customerIndustry?: string | null;
+  /** ISO completion date (YYYY-MM-DD). Leave unset until verified. */
+  completionDate?: string | null;
+  /** Materials used on the job. */
+  materials?: string[] | null;
+  /** Decoration or production method (e.g. screen print, cut vinyl, embroidery). */
+  decorationMethod?: string | null;
+  /** Optional project location. */
+  location?: string | null;
+  /** Customer permission to publish photos and project details. */
+  customerPermission?: CustomerPermissionStatus | null;
+  /** URL of a related social post, once published. */
+  socialPostUrl?: string | null;
+  /** URL of a related Google Business Profile post, once published. */
+  googleBusinessProfilePostUrl?: string | null;
+  /** ID of a verified review in reviews.ts connected to this project. */
+  connectedReviewId?: string | null;
+  /** Optional SEO title override for the project detail page. */
+  seoTitle?: string | null;
+  /** Optional SEO description override for the project detail page. */
+  seoDescription?: string | null;
 }
 
 export interface Industry {

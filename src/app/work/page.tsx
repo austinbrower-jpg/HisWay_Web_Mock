@@ -7,7 +7,7 @@ import { QuoteCta } from "@/components/sections/QuoteCta";
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "Sample sign, apparel, vehicle graphic, and promotional product projects showing what the HisWay shop produces.",
+    "Sign, apparel, vehicle graphic, and promotional product projects from HisWay Press or Print in San Antonio.",
 };
 
 export default function WorkPage() {

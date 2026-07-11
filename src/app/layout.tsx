@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   },
   description:
     "Custom signs, screen printing, embroidery, vehicle graphics, and promotional products for San Antonio businesses. Personal service from concept through completion.",
+  robots: company.isConceptSite
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
   openGraph: {
     type: "website",
     siteName: company.name,

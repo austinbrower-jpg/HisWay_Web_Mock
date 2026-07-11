@@ -21,9 +21,9 @@ export function AboutPreview() {
             Learned on the shop floor, built for the long haul
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-            HisWay&apos;s owner came into this trade as a driver in 2018 and learned the
-            sign business hands-on, one deadline at a time. The shop has since grown
-            from signs into printing, apparel, promotional products, and content.
+            HisWay&apos;s owner came into this trade as a driver and learned the sign
+            business hands-on, one deadline at a time. The shop has since grown from
+            signs into printing, apparel, promotional products, and content.
           </p>
           <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted">
             The goal has never changed: one place for your whole brand, with personal

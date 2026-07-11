@@ -99,7 +99,9 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {company.name}. All rights reserved.
           </p>
-          <p className="font-mono text-xs tracking-wide uppercase">Concept preview site</p>
+          {company.isConceptSite && (
+            <p className="font-mono text-xs tracking-wide uppercase">Concept preview site</p>
+          )}
         </div>
       </div>
     </footer>

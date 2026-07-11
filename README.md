@@ -27,6 +27,25 @@ npx tsc --noEmit # TypeScript
 npm run build    # production build (all routes prerendered)
 ```
 
+## Concept vs production indexing
+
+This concept must not compete with the live HisWay website in Google.
+
+`company.isConceptSite` in [`src/data/company.ts`](src/data/company.ts) is the single switch (no environment variables):
+
+| `isConceptSite` | Behavior |
+| --- | --- |
+| `true` (default) | Metadata `noindex, nofollow`; `robots.ts` disallows all crawlers; sitemap returns empty; footer shows “Concept preview site” |
+| `false` | Allows indexing; exposes sitemap; hides concept footer label |
+
+**After HisWay approves this site as the live website:**
+
+1. Set `isConceptSite` to `false`
+2. Confirm `siteUrl` matches the final live domain
+3. Fill verified Google review fields in [`src/data/reviews.ts`](src/data/reviews.ts)
+4. Replace placeholder photography with approved business-owned assets
+5. Redeploy
+
 ## Deploying to Vercel
 
 1. Import the GitHub repository in Vercel (**Add New Project → Import**).
@@ -36,7 +55,7 @@ npm run build    # production build (all routes prerendered)
 
 Or from the CLI: `npx vercel` from the project root.
 
-> Note: while this remains a concept, consider keeping it un-indexed so it never competes with the real site in search. Vercel preview URLs are `noindex` automatically; if you promote it to production before the owner adopts it, flip `robots.ts` to disallow.
+Keep `isConceptSite: true` for any preview that should stay out of search results.
 
 ## Content model
 
@@ -44,24 +63,40 @@ All copy and structure live in `src/data/`:
 
 | File | Contents |
 | --- | --- |
-| `company.ts` | Name, phone, email, social + catalog URLs. Address/hours are intentionally `null` placeholders — do not invent them. |
+| `company.ts` | Name, phone, email, social + catalog URLs, `isConceptSite` switch. Address/hours are intentionally `null` placeholders — do not invent them. |
+| `reviews.ts` | Typed Google review model + trust signals. Ratings, counts, and quotes stay empty until verified. |
 | `services.ts` | The 7 services with overview copy, use cases, options, and FAQs. Drives `/services` and `/services/[slug]`. |
-| `projects.ts` | 6 anonymous placeholder portfolio projects. Drives `/work` and `/work/[slug]`. |
+| `projects.ts` | 6 anonymous placeholder portfolio projects (extended fields ready for verified production work). |
 | `industries.ts` | 8 industries served, structured to grow into per-industry SEO pages later. |
 | `navigation.ts` | Header and footer link groups. |
 
+## Planning documents
+
+Operational and growth docs live in [`docs/`](docs/):
+
+| Document | Purpose |
+| --- | --- |
+| `content-and-photo-intake.md` | How to collect owned photography with permission |
+| `placeholder-replacement-map.md` | Every placeholder asset and what should replace it |
+| `project-publishing-workflow.md` | Website → GBP → social → review loop |
+| `seo-keyword-map.md` | Seed keywords + page-to-intent map (validation required) |
+| `google-business-profile-plan.md` | GBP audit, cadence, and review-request workflow |
+| `promoplace-and-catalog-discovery.md` | Vendor discovery questions and comparison matrix |
+| `hisway-discovery-questionnaire.md` | Owner/Sadrac discovery questions |
+| `operations-hub-roadmap.md` | Future internal ops system (not built in this phase) |
+
 ## Swapping in real photography
 
-Every image on the site is a labeled SVG placeholder under `public/images/` (generated print-proof style, crop marks and all). To use real photos, replace the file at the same path (any raster format; update the extension in the data file or component reference). The `PhotoFrame` component automatically runs raster images through `next/image` optimization.
+Every image on the site is a labeled SVG placeholder under `public/images/`. To use real photos, follow the intake docs, then replace the file at the same path (any raster format; update the extension in the data file or component reference). The `PhotoFrame` component automatically runs raster images through `next/image` optimization.
 
 ## Route map
 
-- `/` — homepage (hero, services, featured work, differentiators, promo intro, process, industries, about preview, gallery, quote CTA)
-- `/services` + `/services/[slug]` — 7 data-driven service detail pages
+- `/` — homepage (hero, trust bar, services, featured work, differentiators, reviews, promo intro, process, industries, about preview, gallery, local presence, quote CTA)
+- `/services` + `/services/[slug]` — 7 data-driven service detail pages (selected pages include service-scoped review modules)
 - `/work` + `/work/[slug]` — portfolio grid with category filters + 6 project case pages
 - `/promotional-products` — curated entry point into the external [PromoPlace catalog](https://www.promoplace.com/hiswaypressorprint)
 - `/industries` — 8 industries served
-- `/about` — shop story and values
+- `/about` — shop story, values, and trust modules
 - `/quote` — frontend-only quote request mock (validation + success state; no network submit)
 - `/contact` — contact details + frontend-only message mock
 - `sitemap.xml`, `robots.txt`, OG image, favicon, Apple touch icons
@@ -81,7 +116,8 @@ Quote and Contact forms are **presentation mocks**:
 - All photography (labeled placeholder slots)
 - Street address and business hours (confirm with owner; deliberately unset in `company.ts`)
 - "San Antonio, Texas" service area wording (derived from the 210 area code and current branding; confirm exact wording with owner)
-- Customer proof/testimonials are omitted entirely until real ones are provided
+- Google rating, review count, profile URL, and review quotes (unset in `reviews.ts` until verified)
+- Official founding year (not stated publicly until the owner confirms)
 - `siteUrl` should be updated after the first Vercel deploy if the assigned domain differs
 
 ## Auth / `/login` note

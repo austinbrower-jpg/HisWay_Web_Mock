@@ -3,7 +3,15 @@ import { company } from "@/data/company";
 import { services } from "@/data/services";
 import { projects } from "@/data/projects";
 
+/**
+ * Concept mode returns an empty sitemap so the preview is not exposed as an
+ * indexable production sitemap. Production mode builds the full route map.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (company.isConceptSite) {
+    return [];
+  }
+
   const staticRoutes = [
     "",
     "/services",
