@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${barlow.variable} ${barlowCondensed.variable} ${plexMono.variable} flex min-h-dvh flex-col antialiased`}
       >

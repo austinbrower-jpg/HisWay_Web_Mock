@@ -25,7 +25,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal className="lg:col-span-6" delay={0.12}>
             <PhotoFrame
-              src="/images/placeholders/workshop-hero.svg"
+              src="/images/placeholders/workshop.svg"
               alt="Placeholder for a workshop photo"
               aspect="aspect-[4/3]"
               marks
@@ -81,7 +81,7 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-12 items-center">
             <Reveal className="lg:col-span-6 order-2 lg:order-1">
               <PhotoFrame
-                src="/images/placeholders/team-photo.svg"
+                src="/images/team/team-photo.svg"
                 alt="Placeholder for team photo"
                 aspect="aspect-square"
               />
@@ -90,15 +90,15 @@ export default function AboutPage() {
               <h2 className="heading-display text-4xl text-ink">Our Values</h2>
               <ul className="mt-8 space-y-6">
                 <li>
-                  <h4 className="font-display text-xl font-semibold uppercase text-ink">Personal Service</h4>
+                  <h3 className="font-display text-xl font-semibold uppercase text-ink">Personal Service</h3>
                   <p className="mt-2 text-muted">We don&apos;t hide behind portals. We communicate clearly, pick up the phone, and ensure you know where your project stands.</p>
                 </li>
                 <li>
-                  <h4 className="font-display text-xl font-semibold uppercase text-ink">Hands-on Quality</h4>
+                  <h3 className="font-display text-xl font-semibold uppercase text-ink">Hands-on Quality</h3>
                   <p className="mt-2 text-muted">Because we learned the trade by doing it, we know what quality looks like at every step of the process.</p>
                 </li>
                 <li>
-                  <h4 className="font-display text-xl font-semibold uppercase text-ink">One-stop reliability</h4>
+                  <h3 className="font-display text-xl font-semibold uppercase text-ink">One-stop reliability</h3>
                   <p className="mt-2 text-muted">We value your time. We aim to handle your branding comprehensively so you can focus on running your business.</p>
                 </li>
               </ul>

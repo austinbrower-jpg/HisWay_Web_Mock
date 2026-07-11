@@ -29,9 +29,10 @@ npm run build    # production build (all routes prerendered)
 
 ## Deploying to Vercel
 
-1. Push this folder to a Git repository (GitHub/GitLab/Bitbucket).
-2. In Vercel: **Add New Project → Import** the repository. The Next.js defaults are correct; no environment variables are required.
-3. After the first deploy, update `siteUrl` in [`src/data/company.ts`](src/data/company.ts) to the assigned URL (used by metadata, sitemap, and robots), then redeploy.
+1. Import the GitHub repository in Vercel (**Add New Project → Import**).
+2. Framework preset: **Next.js**. Build command `npm run build`, output detected automatically.
+3. **No environment variables are required.** There is no backend, auth, or CMS.
+4. After the first deploy, update `siteUrl` in [`src/data/company.ts`](src/data/company.ts) to the assigned production URL (used by metadata, sitemap, and robots), then redeploy.
 
 Or from the CLI: `npx vercel` from the project root.
 
@@ -57,17 +58,23 @@ Every image on the site is a labeled SVG placeholder under `public/images/` (gen
 
 - `/` — homepage (hero, services, featured work, differentiators, promo intro, process, industries, about preview, gallery, quote CTA)
 - `/services` + `/services/[slug]` — 7 data-driven service detail pages
-- `/work` + `/work/[slug]` — portfolio grid + 6 project case pages
+- `/work` + `/work/[slug]` — portfolio grid with category filters + 6 project case pages
 - `/promotional-products` — curated entry point into the external [PromoPlace catalog](https://www.promoplace.com/hiswaypressorprint)
 - `/industries` — 8 industries served
-- `/about`, `/quote`, `/contact` — interim pages (full versions are the next build phase)
-- `sitemap.xml`, `robots.txt`, OG image, favicon
+- `/about` — shop story and values
+- `/quote` — frontend-only quote request mock (validation + success state; no network submit)
+- `/contact` — contact details + frontend-only message mock
+- `sitemap.xml`, `robots.txt`, OG image, favicon, Apple touch icons
 
-## Build phases
+## Forms
 
-**Phase 1 (this build):** foundation, design system, header/footer/mobile nav, homepage, services system, portfolio system, industries, interim pages, SEO base.
+Quote and Contact forms are **presentation mocks**:
 
-**Phase 2 (planned):** full quote form (mock submission with validation + success state), full contact page, complete About story page, promotional-products landing with Help Me Choose flow, portfolio category filters.
+- Native HTML validation for required fields
+- Labels wired to inputs
+- Success UI after a short simulated delay
+- File picker on the quote form shows a local filename only — nothing is uploaded
+- No `fetch`, no API routes, no credentials
 
 ## Known placeholders
 
@@ -75,3 +82,8 @@ Every image on the site is a labeled SVG placeholder under `public/images/` (gen
 - Street address and business hours (confirm with owner; deliberately unset in `company.ts`)
 - "San Antonio, Texas" service area wording (derived from the 210 area code and current branding; confirm exact wording with owner)
 - Customer proof/testimonials are omitted entirely until real ones are provided
+- `siteUrl` should be updated after the first Vercel deploy if the assigned domain differs
+
+## Auth / `/login` note
+
+This repository contains **no** authentication, Supabase, or `/login` route. If a `/login` request with a Supabase-related error appears during local development, it is coming from the browser environment or an extension — not from this application.

@@ -131,7 +131,7 @@ export function Header() {
                       <div
                         id="services-menu"
                         className={cn(
-                          "absolute left-1/2 top-full w-[560px] -translate-x-1/2 border border-line-dark bg-ink-2 p-2 shadow-2xl shadow-black/40 transition duration-150",
+                          "absolute top-full left-1/2 w-[min(560px,calc(100vw-2.5rem))] -translate-x-1/2 border border-line-dark bg-ink-2 p-2 shadow-2xl shadow-black/40 transition duration-150",
                           servicesOpen
                             ? "visible translate-y-3 opacity-100"
                             : "invisible translate-y-1 opacity-0",

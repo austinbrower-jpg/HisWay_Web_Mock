@@ -6,8 +6,8 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function Hero() {
   return (
-    <section className="bg-ink text-paper">
-      <div className="container-site grid items-center gap-10 py-14 lg:grid-cols-12 lg:gap-14 lg:py-20">
+    <section className="overflow-x-clip bg-ink text-paper">
+      <div className="container-site grid items-center gap-10 py-14 pb-20 lg:grid-cols-12 lg:gap-14 lg:py-20 lg:pb-24">
         <Reveal className="lg:col-span-7">
           <h1 className="heading-display text-5xl sm:text-6xl lg:text-7xl">
             Custom signs, apparel, and promotional products that get your business{" "}
@@ -17,7 +17,7 @@ export function Hero() {
             From storefront signage and vehicle graphics to branded apparel and promo
             products, HisWay takes your project from concept through completion.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center sm:items-stretch gap-4">
+          <div className="mt-8 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
             <ButtonLink href="/quote" variant="primary" className="w-full sm:w-auto">
               Request a Quote
             </ButtonLink>
@@ -39,8 +39,8 @@ export function Hero() {
           </div>
         </Reveal>
 
-        <Reveal className="lg:col-span-5 relative" delay={0.12}>
-          <div className="absolute -inset-4 md:-inset-6 bg-ink-2 -z-10" aria-hidden="true" />
+        <Reveal className="relative lg:col-span-5" delay={0.12}>
+          <div className="absolute -inset-3 -z-10 bg-ink-2 sm:-inset-4 md:-inset-6" aria-hidden="true" />
           <PhotoFrame
             src="/images/placeholders/press-floor.svg"
             alt="Placeholder for a photo of the HisWay production floor"
@@ -49,9 +49,11 @@ export function Hero() {
             priority
             marks
           />
-          <div className="absolute -bottom-6 -right-2 md:-right-6 bg-accent text-ink px-6 py-4 border-4 border-ink shadow-lg">
-             <p className="font-display font-bold uppercase tracking-wider text-sm md:text-base">Est. 2018</p>
-             <p className="font-sans font-medium text-xs mt-0.5">San Antonio, TX</p>
+          <div className="absolute -bottom-6 right-0 border-4 border-ink bg-accent px-5 py-3 text-ink shadow-lg sm:px-6 sm:py-4 md:-right-4 lg:-right-6">
+            <p className="font-display text-sm font-bold uppercase tracking-wider md:text-base">
+              Est. 2018
+            </p>
+            <p className="mt-0.5 font-sans text-xs font-medium">San Antonio, TX</p>
           </div>
         </Reveal>
       </div>

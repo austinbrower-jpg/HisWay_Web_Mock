@@ -24,10 +24,11 @@ export function WorkPortfolio({ projects, categories }: WorkPortfolioProps) {
         <Reveal>
           <div className="mb-10 flex flex-wrap items-center gap-2" role="group" aria-label="Project categories">
             <button
+              type="button"
               onClick={() => setActiveCategory("All")}
-              className={`border px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide transition-colors ${
+              className={`border px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide transition-colors sm:px-4 ${
                 activeCategory === "All"
-                  ? "bg-ink text-paper border-ink"
+                  ? "border-ink bg-ink text-paper"
                   : "border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper"
               }`}
               aria-pressed={activeCategory === "All"}
@@ -36,11 +37,12 @@ export function WorkPortfolio({ projects, categories }: WorkPortfolioProps) {
             </button>
             {categories.map((category) => (
               <button
+                type="button"
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`border px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide transition-colors ${
+                className={`border px-3 py-2 font-display text-sm font-semibold uppercase tracking-wide transition-colors sm:px-4 ${
                   activeCategory === category
-                    ? "bg-ink text-paper border-ink"
+                    ? "border-ink bg-ink text-paper"
                     : "border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper"
                 }`}
                 aria-pressed={activeCategory === category}
