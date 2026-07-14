@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { conceptHomepageHero } from "@/data/concept-media";
 
 export function Hero() {
   return (
@@ -42,12 +43,14 @@ export function Hero() {
         <Reveal className="relative lg:col-span-5" delay={0.12}>
           <div className="absolute -inset-3 -z-10 bg-ink-2 sm:-inset-4 md:-inset-6" aria-hidden="true" />
           <PhotoFrame
-            src="/images/placeholders/press-floor.svg"
-            alt="Placeholder for a photo of the HisWay production floor"
+            src={conceptHomepageHero.src}
+            alt={conceptHomepageHero.alt}
             aspect="aspect-[4/3] lg:aspect-[4/5]"
             sizes="(min-width: 1024px) 40vw, 100vw"
-            priority
+            preload
+            loading="eager"
             marks
+            imageClassName={conceptHomepageHero.imageClassName}
           />
           <div className="absolute -bottom-6 right-0 border-4 border-ink bg-accent px-5 py-3 text-ink shadow-lg sm:px-6 sm:py-4 md:-right-4 lg:-right-6">
             <p className="font-display text-sm font-bold uppercase tracking-wider md:text-base">

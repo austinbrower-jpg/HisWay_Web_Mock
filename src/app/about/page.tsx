@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { QuoteCta } from "@/components/sections/QuoteCta";
 import { FeaturedReviews } from "@/components/reviews/FeaturedReviews";
 import { ReviewTrustBar } from "@/components/reviews/ReviewTrustBar";
+import { conceptAboutWorkshop } from "@/data/concept-media";
 
 export const metadata: Metadata = {
   title: "About",
@@ -27,10 +28,12 @@ export default function AboutPage() {
           </Reveal>
           <Reveal className="lg:col-span-6" delay={0.12}>
             <PhotoFrame
-              src="/images/placeholders/workshop.svg"
-              alt="Placeholder for a workshop photo"
+              src={conceptAboutWorkshop.src}
+              alt={conceptAboutWorkshop.alt}
               aspect="aspect-[4/3]"
+              loading="eager"
               marks
+              imageClassName={conceptAboutWorkshop.imageClassName}
             />
           </Reveal>
         </div>

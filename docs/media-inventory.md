@@ -9,17 +9,30 @@ Source archive: `Branding/images/intake/originals/`
 - Shape mix: `21` square exports, `1` landscape image
 - Duplicate scan: no exact duplicates and no near-duplicate collisions found in a basic hash pass
 - Risk notes: `1` file with a visible phone number, `0` visible license plates, `0` visible street addresses
-- Approval baseline: no repository-documented approvals were found, so every manifest entry keeps `publicUseApproved: false`
+- Approval baseline: no repository-documented public approvals were found, so every manifest entry keeps `publicUseApproved: false`; a smaller internal subset may still be marked `conceptUseApproved: true` for the private noindex mockup only
 
 ## Placement Decision
 
 The intake set is useful, but it is not ready for wholesale live-site replacement yet. Most of the files are small square exports, many feature customer artwork or logos, and several are social-only graphics rather than website photography.
 
-Because the repository does not currently document public-use approval for any of these files, this pass stops short of wiring real photography into the live pages. The placement plan is still captured below through proposed filenames and destinations, and a small set of low-risk owner-facing copies is staged inside `public/images/` for review only.
+Because the repository does not currently document public-use approval for any of these files, this pass still stops short of treating any image as launch-ready production media. The placement plan is captured below through proposed filenames and destinations, and a small set of low-risk owner-facing copies is staged inside `public/images/`.
 
-## Staged Public Copies
+On `feat/concept-media-implementation`, a narrower concept-only subset is allowed inside the private noindex mockup. That concept approval does not authorize public launch, paid ads, Google Business Profile posts, Facebook reuse, or Instagram reposting.
 
-These low-risk copies were prepared for owner review and future placement planning. They are not referenced by the current site code in this pass.
+## Concept-Approved Mockup Subset
+
+These are the only intake assets currently approved for use inside the private concept preview:
+
+- `media-004` → homepage hero, homepage gallery tile 4, embroidery service hero
+- `media-007` → homepage gallery tile 2
+- `media-018` → homepage gallery tile 3
+- `media-019` → homepage gallery tile 1, homepage About preview, About page workshop image
+
+Each of those entries still keeps `publicUseApproved: false` in the manifest.
+
+## Staged Review Copies
+
+These low-risk copies were prepared for owner review and placement planning. A concept-only subset is now referenced by the noindex mockup, but none of the files below are approved for public launch in the repository.
 
 - `public/images/brand/hisway-press-or-print-logo-square.png`
 - `public/images/shop/hisway-brand-textile-closeup.webp`
@@ -51,7 +64,7 @@ Verification notes for the staged subset under `public/images/brand/` and `publi
 - No file was upscaled. The 2048x1365 landscape image was reduced to `1600x1066`; all square staged copies remain at their original `414x414` or `882x882` dimensions.
 - Optimization did not materially degrade the staged subset in review. The JPG-to-WEBP conversions remain visually consistent with the small square source exports.
 - Transparency preservation was not a blocking issue in the staged subset. The brand mark stayed as a PNG, and the staged sources do not rely on alpha transparency for presentation.
-- No staged copy is referenced by a live component yet; the site still points to the existing placeholder SVG paths.
+- Concept-only placements now reference a subset of these staged copies inside the noindex mockup. Public-launch pages should still treat every intake asset as unapproved until owner confirmation is documented.
 - No privacy-sensitive image was staged without an explicit warning in the manifest and review docs. The staged set is limited to low-risk brand and shop/process imagery.
 - No staged file needs to be moved to archive or removed from the current production-review subset.
 

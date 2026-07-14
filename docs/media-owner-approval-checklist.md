@@ -8,6 +8,11 @@ Legend:
 - `[x]` confirmed
 - `n/a` not applicable
 
+Concept-preview note:
+
+- Some low-risk assets may be used inside the private noindex mockup with `conceptUseApproved: true`.
+- Concept-preview use does not grant public-launch approval, paid-ad approval, Google Business Profile approval, Facebook approval, or Instagram approval.
+
 ## Strong Individual Candidates
 
 ### Item A · `media-001` · HisWay square logo
@@ -34,6 +39,7 @@ Legend:
 - Reference:
   - Source: `Branding/images/intake/originals/469543024_1128302292136489_734418222008985039_n.jpg`
   - Staged copy: `public/images/shop/hisway-brand-textile-closeup.webp`
+- Current concept placements: `Homepage hero`, `Homepage Around the Shop tile 4`, `Embroidery hero`
 - HisWay owns the image: `[ ]`
 - Customer permission received: `n/a`
 - Customer name may be shown: `n/a`
@@ -53,6 +59,47 @@ Legend:
 - Reference:
   - Source: `Branding/images/intake/originals/487208238_1207141951419167_733478172312361133_n.jpg`
   - Staged copy: `public/images/shop/screen-printing-ink-closeup.webp`
+- Current concept placements: `Homepage Around the Shop tile 2`
+- HisWay owns the image: `[ ]`
+- Customer permission received: `n/a`
+- Customer name may be shown: `n/a`
+- Customer logo may be shown: `n/a`
+- License plate may be shown: `n/a`
+- People approved appearance: `n/a`
+- Project facts verified: `[ ]`
+- Approved for website: `[ ]`
+- Approved for Google Business Profile: `[ ]`
+- Approved for Facebook: `[ ]`
+- Approved for Instagram: `[ ]`
+- Final approval status: `pending`
+- Owner notes:
+
+### Item D · `media-018` · Folded apparel order boxes
+
+- Reference:
+  - Source: `Branding/images/intake/originals/604382287_18098581804850432_6385037112064078762_n.jpg`
+  - Staged copy: `public/images/shop/folded-apparel-order-boxes.webp`
+- Current concept placements: `Homepage Around the Shop tile 3`
+- HisWay owns the image: `[ ]`
+- Customer permission received: `n/a`
+- Customer name may be shown: `n/a`
+- Customer logo may be shown: `n/a`
+- License plate may be shown: `n/a`
+- People approved appearance: `n/a`
+- Project facts verified: `[ ]`
+- Approved for website: `[ ]`
+- Approved for Google Business Profile: `[ ]`
+- Approved for Facebook: `[ ]`
+- Approved for Instagram: `[ ]`
+- Final approval status: `pending`
+- Owner notes:
+
+### Item E · `media-019` · Screen-printing carousel detail
+
+- Reference:
+  - Source: `Branding/images/intake/originals/648197257_18105225670850432_5912874579191392931_n.jpg`
+  - Staged copy: `public/images/shop/screen-printing-carousel-detail.webp`
+- Current concept placements: `Homepage Around the Shop tile 1`, `Homepage About preview`, `About page workshop image`
 - HisWay owns the image: `[ ]`
 - Customer permission received: `n/a`
 - Customer name may be shown: `n/a`

@@ -14,6 +14,7 @@ import { Process } from "@/components/sections/home/Process";
 import { QuoteCta } from "@/components/sections/QuoteCta";
 import { ServiceReview } from "@/components/reviews/ServiceReview";
 import { cn } from "@/lib/utils";
+import { conceptServiceHeroMedia } from "@/data/concept-media";
 
 /** Services that benefit from a service-scoped review module. */
 const REVIEW_ENABLED_SERVICES = new Set([
@@ -48,6 +49,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   if (!service) notFound();
 
   const relatedProjects = getProjects(service.relatedProjects);
+  const heroMedia = conceptServiceHeroMedia[service.slug];
 
   return (
     <>
@@ -81,12 +83,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </Reveal>
           <Reveal className="lg:col-span-5" delay={0.1}>
             <PhotoFrame
-              src={service.heroImage}
-              alt={service.heroImageAlt}
+              src={heroMedia?.src ?? service.heroImage}
+              alt={heroMedia?.alt ?? service.heroImageAlt}
               aspect="aspect-[16/10]"
               sizes="(min-width: 1024px) 40vw, 100vw"
-              priority
+              preload
+              loading="eager"
               marks
+              imageClassName={heroMedia?.imageClassName}
             />
           </Reveal>
         </div>

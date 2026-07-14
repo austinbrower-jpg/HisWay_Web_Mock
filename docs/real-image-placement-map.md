@@ -1,6 +1,21 @@
 # Real Image Placement Map
 
-No real intake image should be wired into the live site until its manifest entry remains explicitly approved. Every recommendation below is a planning note only.
+No real intake image should be wired into the public launch until its manifest entry remains explicitly approved for public use. The concept-preview placements listed below are allowed only inside the private noindex mockup and do not change any public approval status.
+
+## Live Concept-Only Placements
+
+| Placement | Original source path | Production copy path | Crop notes | Draft alt text | Concept status | Public status |
+| --- | --- | --- | --- | --- | --- | --- |
+| Homepage hero image | `Branding/images/intake/originals/469543024_1128302292136489_734418222008985039_n.jpg` (`media-004`) | `public/images/shop/hisway-brand-textile-closeup.webp` | Desktop keeps a portrait-weighted crop on the embroidered wordmark; mobile stays centered so the HisWay mark remains readable. | `Close-up of HisWay-branded embroidered fabric arranged on a worktable` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+| Homepage Around the Shop tile 1 | `Branding/images/intake/originals/648197257_18105225670850432_5912874579191392931_n.jpg` (`media-019`) | `public/images/shop/screen-printing-carousel-detail.webp` | Use the existing square equipment composition without enlarging it beyond tile size. | `Screen-printing carousel press set up for a garment run` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+| Homepage Around the Shop tile 2 | `Branding/images/intake/originals/487208238_1207141951419167_733478172312361133_n.jpg` (`media-007`) | `public/images/shop/screen-printing-ink-closeup.webp` | Keep the square crop centered on the lifted ink. | `Bright green screen-print ink lifted from an open bucket` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+| Homepage Around the Shop tile 3 | `Branding/images/intake/originals/604382287_18098581804850432_6385037112064078762_n.jpg` (`media-018`) | `public/images/shop/folded-apparel-order-boxes.webp` | Keep the stacked garments frontmost and avoid enlarging the small export beyond its square tile. | `Folded shirts stacked on shipping boxes in the shop` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+| Homepage Around the Shop tile 4 | `Branding/images/intake/originals/469543024_1128302292136489_734418222008985039_n.jpg` (`media-004`) | `public/images/shop/hisway-brand-textile-closeup.webp` | Use a square crop to vary the hero treatment while preserving the brand mark. | `Close-up of HisWay-branded embroidered fabric arranged on a worktable` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+| Homepage About preview image | `Branding/images/intake/originals/648197257_18105225670850432_5912874579191392931_n.jpg` (`media-019`) | `public/images/shop/screen-printing-carousel-detail.webp` | Keep the image inside the existing 4:3 support frame; do not promote it to a full-width hero. | `Screen-printing carousel press set up for a garment run` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+| About page workshop image | `Branding/images/intake/originals/648197257_18105225670850432_5912874579191392931_n.jpg` (`media-019`) | `public/images/shop/screen-printing-carousel-detail.webp` | Same constrained 4:3 support treatment as the homepage About preview. | `Screen-printing carousel press set up for a garment run` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+| Embroidery hero | `Branding/images/intake/originals/469543024_1128302292136489_734418222008985039_n.jpg` (`media-004`) | `public/images/shop/hisway-brand-textile-closeup.webp` | Preserve a 16:10 crop centered on the stitched HisWay mark and fabric texture. | `Close-up of HisWay-branded embroidered fabric arranged on a worktable` | `Implemented in the noindex concept preview` | `publicUseApproved: false` |
+
+## Public Placement Planning
 
 ## Homepage
 

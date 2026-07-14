@@ -1,13 +1,10 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { company } from "@/data/company";
+import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-
-const tiles = [1, 2, 3, 4, 5, 6].map((n) => ({
-  src: `/images/placeholders/gallery-${n}.svg`,
-  alt: `Placeholder ${n} for a recent work photo from the shop`,
-}));
+import { conceptGalleryTiles } from "@/data/concept-media";
 
 export function RecentGallery() {
   return (
@@ -41,7 +38,7 @@ export function RecentGallery() {
           aria-label="Recent work photos, scrollable"
         >
           <ul className="container-site flex w-max gap-3">
-            {tiles.map((tile) => (
+            {conceptGalleryTiles.map((tile) => (
               <li
                 key={tile.src}
                 className="relative aspect-square w-52 shrink-0 overflow-hidden bg-paper-2 sm:w-60"
@@ -51,8 +48,8 @@ export function RecentGallery() {
                   alt={tile.alt}
                   fill
                   sizes="240px"
-                  unoptimized
-                  className="object-cover"
+                  unoptimized={tile.src.endsWith(".svg")}
+                  className={cn("object-cover", tile.imageClassName)}
                 />
               </li>
             ))}

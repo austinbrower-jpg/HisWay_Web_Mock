@@ -3,6 +3,7 @@ import { ExternalLink, Mail, Phone } from "lucide-react";
 import { company } from "@/data/company";
 import { footerCompanyLinks, footerExternalLinks } from "@/data/navigation";
 import { services } from "@/data/services";
+import { conceptPreviewMediaNote } from "@/data/concept-media";
 
 export function Footer() {
   return (
@@ -100,7 +101,12 @@ export function Footer() {
             © {new Date().getFullYear()} {company.name}. All rights reserved.
           </p>
           {company.isConceptSite && (
-            <p className="font-mono text-xs tracking-wide uppercase">Concept preview site</p>
+            <div className="text-left sm:text-right">
+              <p className="font-mono text-xs tracking-wide uppercase">Concept preview site</p>
+              <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-dark/90">
+                {conceptPreviewMediaNote}
+              </p>
+            </div>
           )}
         </div>
       </div>
