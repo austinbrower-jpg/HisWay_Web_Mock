@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, Phone, X } from "lucide-react";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { mainNav, quoteCta } from "@/data/navigation";
 import { services } from "@/data/services";
 import { company } from "@/data/company";
@@ -72,14 +73,14 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
           transition={{ duration: 0.2 }}
         >
           <div className="container-site flex h-[68px] shrink-0 items-center justify-between border-b border-line-dark">
-            <span className="flex flex-col leading-none" aria-hidden="true">
-              <span className="font-display text-[26px] font-bold tracking-tight text-paper uppercase">
-                HisWay
-              </span>
-              <span className="font-mono text-[9px] tracking-[0.28em] text-muted-dark uppercase">
-                Press or Print
-              </span>
-            </span>
+            <Link
+              href="/"
+              aria-label="HisWay Press or Print, home"
+              className="inline-flex shrink-0 items-center justify-center border border-line-dark bg-paper px-2.5 py-2 transition-colors hover:border-accent hover:bg-paper-2"
+              onClick={onClose}
+            >
+              <BrandLogo variant="badge" className="h-9 w-9" />
+            </Link>
             <button
               ref={closeButtonRef}
               type="button"

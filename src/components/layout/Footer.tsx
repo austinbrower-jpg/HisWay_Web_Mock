@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ExternalLink, Mail, Phone } from "lucide-react";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { company } from "@/data/company";
 import { footerCompanyLinks, footerExternalLinks } from "@/data/navigation";
 import { services } from "@/data/services";
@@ -10,12 +11,21 @@ export function Footer() {
     <footer className="border-t-4 border-accent bg-ink text-paper">
       <div className="container-site grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-4">
-          <p className="flex flex-col leading-none">
-            <span className="font-display text-3xl font-bold tracking-tight uppercase">HisWay</span>
-            <span className="mt-1 font-mono text-[10px] tracking-[0.28em] text-muted-dark uppercase">
-              Press or Print
-            </span>
-          </p>
+          <div className="flex items-start gap-4">
+            <Link
+              href="/"
+              aria-label="HisWay Press or Print, home"
+              className="inline-flex shrink-0 items-center justify-center border border-line-dark bg-paper p-2 transition-colors hover:border-accent hover:bg-paper-2"
+            >
+              <BrandLogo variant="badge" className="h-16 w-16 sm:h-[4.75rem] sm:w-[4.75rem]" />
+            </Link>
+            <p className="flex flex-col leading-none">
+              <span className="font-display text-3xl font-bold tracking-tight uppercase">HisWay</span>
+              <span className="mt-1 font-mono text-[10px] tracking-[0.28em] text-muted-dark uppercase">
+                Press or Print
+              </span>
+            </p>
+          </div>
           <p className="mt-5 max-w-xs leading-relaxed text-muted-dark">
             Custom signs, apparel, and promotional products for {company.serviceArea} businesses,
             with personal service from concept through completion.

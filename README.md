@@ -80,6 +80,7 @@ Operational and growth docs live in [`docs/`](docs/):
 | `media-owner-review-guide.md` | Concise owner-session guide for deciding concept, public web, and portfolio use |
 | `media-owner-decision-sheet.md` | Short printable decision sheet for the owner approval conversation |
 | `media-owner-approval-checklist.md` | Detailed worksheet for the same media approval session |
+| `brand-assets.md` | Official owner-provided logo usage, asset paths, and contrast rules |
 | `placeholder-replacement-map.md` | Every placeholder asset and what should replace it |
 | `project-publishing-workflow.md` | Website → GBP → social → review loop |
 | `seo-keyword-map.md` | Seed keywords + page-to-intent map (validation required) |
@@ -168,3 +169,11 @@ This repository contains **no** authentication, Supabase, or `/login` route. If 
 - Merged PR #6 into `main`, confirmed the new owner review guide is present on `main`, and added the concise decision sheet for the owner conversation.
 - Revalidated `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `node scripts/generate-media-contact-sheets.mjs` on the updated `main` branch.
 - Left all media approval flags unchanged, kept concept mode in `noindex, nofollow`, and did not add customer portfolio entries or review photos.
+
+### 2026-07-14 (logo integration)
+
+- Added the two owner-provided official logo files to `public/images/brand/` with clean production filenames, while preserving the original uploads alongside them.
+- Replaced the text-only header and footer brand lockups with responsive image-based treatments: horizontal logo for the desktop header, badge logo for mobile header/nav and footer branding.
+- Swapped the app icons to the owner-provided badge artwork, and replaced the generated Open Graph route with a static social card that includes the badge logo in a framed composition.
+- Added `docs/brand-assets.md` plus a media-inventory note so future work knows which logo is intended for wide use, which is intended for compact use, and when a light panel is required.
+- Revalidated `npm run lint`, `npx tsc --noEmit`, and `npm run build` after the logo changes.

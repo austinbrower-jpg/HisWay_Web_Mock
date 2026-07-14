@@ -30,6 +30,23 @@ These are the only intake assets currently approved for use inside the private c
 
 Each of those entries still keeps `publicUseApproved: false` in the manifest.
 
+## Official Brand Assets
+
+Two owner-provided logo files now live in the production brand-assets folder at `public/images/brand/`.
+Use the clean permanent filenames below in the site, and keep the original uploaded WebP files alongside them so the source artwork remains available without recompression.
+
+- `public/images/brand/hisway-horizontal-logo.webp` from `public/images/brand/Hisway_New+Logo.webp`
+- `public/images/brand/hisway-badge-logo.webp` from `public/images/brand/LOGO (1).webp`
+
+Usage guidance:
+
+- The horizontal logo is the preferred desktop header / wide brand-lockup asset.
+- The badge logo is the preferred compact asset for mobile header/nav, footer branding, app icons, and social / Open Graph compositions.
+- The horizontal logo should only sit on a light or paper-toned background, or inside a restrained light panel.
+- The badge logo may sit on light or dark sections, but if it is placed over a dark section it should still sit inside a light panel rather than a black box.
+- Do not apply visible filters, distort the aspect ratio, or clip the artwork.
+- The earlier staged square PNG (`public/images/brand/hisway-press-or-print-logo-square.png`) remains in the repo as a legacy copy, but the new badge asset is the preferred compact logo moving forward.
+
 ## Staged Review Copies
 
 These low-risk copies were prepared for owner review and placement planning. A concept-only subset is now referenced by the noindex mockup, but none of the files below are approved for public launch in the repository.
