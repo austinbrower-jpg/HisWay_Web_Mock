@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight, ChevronDown, Menu } from "lucide-react";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 import { mainNav, quoteCta } from "@/data/navigation";
 import { services } from "@/data/services";
 import { cn } from "@/lib/utils";
@@ -72,12 +73,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line-dark bg-ink">
       <div className="container-site flex h-[68px] items-center justify-between gap-6">
-        <Link href="/" className="group flex flex-col leading-none" aria-label="HisWay Press or Print, home">
-          <span className="font-display text-[26px] font-bold tracking-tight text-paper uppercase">
-            HisWay
+        <Link
+          href="/"
+          aria-label="HisWay Press or Print, home"
+          className="inline-flex shrink-0 items-center justify-center border border-line-dark bg-paper px-3 py-2 transition-colors hover:border-accent hover:bg-paper-2"
+        >
+          <span className="flex lg:hidden">
+            <BrandLogo variant="badge" className="h-8 w-8 sm:h-9 sm:w-9" />
           </span>
-          <span className="font-mono text-[9px] tracking-[0.28em] text-muted-dark uppercase group-hover:text-accent">
-            Press or Print
+          <span className="hidden lg:flex">
+            <BrandLogo variant="horizontal" preload className="h-10 w-auto" />
           </span>
         </Link>
 
