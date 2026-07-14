@@ -78,6 +78,7 @@ Operational and growth docs live in [`docs/`](docs/):
 | --- | --- |
 | `content-and-photo-intake.md` | How to collect owned photography with permission |
 | `media-owner-review-guide.md` | Concise owner-session guide for deciding concept, public web, and portfolio use |
+| `media-owner-decision-sheet.md` | Short printable decision sheet for the owner approval conversation |
 | `media-owner-approval-checklist.md` | Detailed worksheet for the same media approval session |
 | `placeholder-replacement-map.md` | Every placeholder asset and what should replace it |
 | `project-publishing-workflow.md` | Website → GBP → social → review loop |
@@ -155,3 +156,15 @@ This repository contains **no** authentication, Supabase, or `/login` route. If 
 - Prepared the broader media shortlist, missing-photo checklist, and phased rollout plan without changing any approval flags or introducing review photos.
 - Kept all intake assets at `publicUseApproved: false`, left concept mode in `noindex, nofollow`, avoided new customer portfolio entries, and left `Branding/images/intake/originals/` unchanged.
 - Revalidated `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `node scripts/generate-media-contact-sheets.mjs` successfully.
+
+### 2026-07-14 (owner decision sheet)
+
+- Added the concise `docs/media-owner-decision-sheet.md` for Austin to use directly with the owner during the approval conversation.
+- Kept the decision sheet limited to decisions, customer-branded work choices, and photography scheduling prompts with no approvals made on the owner’s behalf.
+- Preserved the existing safeguards: every media asset remains `publicUseApproved: false`, concept mode remains `noindex, nofollow`, and the originals archive was left untouched.
+
+### 2026-07-14 (post-merge decision sheet)
+
+- Merged PR #6 into `main`, confirmed the new owner review guide is present on `main`, and added the concise decision sheet for the owner conversation.
+- Revalidated `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `node scripts/generate-media-contact-sheets.mjs` on the updated `main` branch.
+- Left all media approval flags unchanged, kept concept mode in `noindex, nofollow`, and did not add customer portfolio entries or review photos.
