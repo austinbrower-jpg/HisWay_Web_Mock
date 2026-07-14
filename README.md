@@ -81,6 +81,7 @@ Operational and growth docs live in [`docs/`](docs/):
 | `media-owner-decision-sheet.md` | Short printable decision sheet for the owner approval conversation |
 | `media-owner-approval-checklist.md` | Detailed worksheet for the same media approval session |
 | `brand-assets.md` | Official owner-provided logo usage, asset paths, and contrast rules |
+| `mobile-navigation.md` | Mobile menu structure, accessibility behavior, and viewports tested |
 | `placeholder-replacement-map.md` | Every placeholder asset and what should replace it |
 | `project-publishing-workflow.md` | Website → GBP → social → review loop |
 | `seo-keyword-map.md` | Seed keywords + page-to-intent map (validation required) |
@@ -177,3 +178,11 @@ This repository contains **no** authentication, Supabase, or `/login` route. If 
 - Swapped the app icons to the owner-provided badge artwork, and replaced the generated Open Graph route with a static social card that includes the badge logo in a framed composition.
 - Added `docs/brand-assets.md` plus a media-inventory note so future work knows which logo is intended for wide use, which is intended for compact use, and when a light panel is required.
 - Revalidated `npm run lint`, `npx tsc --noEmit`, and `npm run build` after the logo changes.
+
+### 2026-07-14 (mobile navigation polish)
+
+- Restructured the mobile menu (`MobileNav.tsx`) into a stable header, an independently scrollable link list, and a pinned CTA/contact zone, fixing a bug where scrolling to the CTA on short viewports also scrolled the close button off-screen.
+- Vertically centered the link list when it's shorter than the available height, replacing the large unbalanced empty gap seen on tall phones and tablets; added `env(safe-area-inset-bottom)` padding to the CTA zone.
+- Reduced primary-link size/padding slightly to ease the text-dense feel, and wired `aria-controls`/`id` between the header trigger and the dialog. No links, pages, or copy were removed, reordered, or rewritten.
+- Verified focus-in-on-open, Tab/Shift+Tab trap and wrap, Escape-to-close, focus-return-to-trigger, body scroll lock, and ≥44px touch targets. Tested at 320×568, 375×667, 390×844, 430×932, one landscape phone, one tablet, and desktop; desktop navigation and footer are unchanged.
+- Added `docs/mobile-navigation.md`. Revalidated `npm run lint`, `npx tsc --noEmit`, and `npm run build`.
