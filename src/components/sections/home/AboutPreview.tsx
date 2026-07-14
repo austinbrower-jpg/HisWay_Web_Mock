@@ -1,6 +1,7 @@
 import { ButtonLink } from "@/components/ui/Button";
 import { PhotoFrame } from "@/components/ui/PhotoFrame";
 import { Reveal } from "@/components/ui/Reveal";
+import { conceptAboutWorkshop } from "@/data/concept-media";
 
 export function AboutPreview() {
   return (
@@ -8,11 +9,12 @@ export function AboutPreview() {
       <div className="container-site grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
         <Reveal className="lg:col-span-5">
           <PhotoFrame
-            src="/images/placeholders/workshop.svg"
-            alt="Placeholder for a photo inside the HisWay workshop"
+            src={conceptAboutWorkshop.src}
+            alt={conceptAboutWorkshop.alt}
             aspect="aspect-[4/3]"
             sizes="(min-width: 1024px) 40vw, 100vw"
             marks
+            imageClassName={conceptAboutWorkshop.imageClassName}
           />
         </Reveal>
 

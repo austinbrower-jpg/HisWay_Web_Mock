@@ -11,6 +11,7 @@ interface PhotoFrameProps {
   /** Print-proof crop marks on the corners. Use sparingly (hero, about). */
   marks?: boolean;
   className?: string;
+  imageClassName?: string;
 }
 
 /**
@@ -25,6 +26,7 @@ export function PhotoFrame({
   priority = false,
   marks = false,
   className,
+  imageClassName,
 }: PhotoFrameProps) {
   const isSvg = src.endsWith(".svg");
   return (
@@ -37,7 +39,7 @@ export function PhotoFrame({
           sizes={sizes}
           priority={priority}
           unoptimized={isSvg}
-          className="object-cover"
+          className={cn("object-cover", imageClassName)}
         />
       </div>
       {marks && (

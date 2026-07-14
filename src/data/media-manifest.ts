@@ -52,12 +52,18 @@ export interface MediaManifestItem {
   containsPhoneNumber: boolean;
   containsAddress: boolean;
   containsCustomerLogo: boolean;
+  conceptUseApproved: boolean;
+  conceptUseNotes: string[];
   publicUseApproved: boolean;
+  publicUseNotes: string[];
   approvalStatus: MediaApprovalStatus;
+  liveConceptPlacements: string[];
+  conceptCropNotes: string[];
+  conceptAltText: string | null;
   notes: string[];
 }
 
-export const mediaManifest = [
+const mediaManifestBase = [
   {
     id: "media-001",
     originalFilename: "239770896_375182784115114_3637560870964266350_n.png",
@@ -723,4 +729,102 @@ export const mediaManifest = [
       "Lowest-byte apparel fulfillment image in the set.",
     ],
   },
-] satisfies readonly MediaManifestItem[];
+] satisfies readonly Omit<
+  MediaManifestItem,
+  "conceptUseApproved" | "conceptUseNotes" | "publicUseNotes" | "liveConceptPlacements" | "conceptCropNotes" | "conceptAltText"
+>[];
+
+const conceptMediaOverrides: Record<
+  string,
+  Pick<
+    MediaManifestItem,
+    "conceptUseApproved" | "conceptUseNotes" | "liveConceptPlacements" | "conceptCropNotes" | "conceptAltText"
+  >
+> = {
+  "media-004": {
+    conceptUseApproved: true,
+    conceptUseNotes: [
+      "Allowed inside the private noindex concept preview only.",
+      "Low-risk brand-owned-looking image with no visible people or customer marks.",
+      "Not approved for public launch, paid ads, Google Business Profile, Facebook, or Instagram reposting.",
+    ],
+    liveConceptPlacements: ["homepage-hero", "services/embroidery-hero", "homepage-gallery-tile-4"],
+    conceptCropNotes: [
+      "Homepage hero uses a tighter portrait crop on the embroidered wordmark and textile texture.",
+      "Embroidery service hero stays at a 16:10 crop centered on the stitched logo area.",
+      "Homepage gallery reuse stays square to avoid stretching the source.",
+    ],
+    conceptAltText: "Close-up of HisWay-branded embroidered fabric arranged on a worktable",
+  },
+  "media-007": {
+    conceptUseApproved: true,
+    conceptUseNotes: [
+      "Allowed inside the private noindex concept preview only.",
+      "Low-risk process close-up with no visible people, customer marks, or private information.",
+      "Not approved for public launch, paid ads, Google Business Profile, Facebook, or Instagram reposting.",
+    ],
+    liveConceptPlacements: ["homepage-gallery-tile-2"],
+    conceptCropNotes: ["Used as a square gallery tile with the ink bucket centered to preserve the process detail."],
+    conceptAltText: "Bright green screen-print ink lifted from an open bucket",
+  },
+  "media-018": {
+    conceptUseApproved: true,
+    conceptUseNotes: [
+      "Allowed inside the private noindex concept preview only.",
+      "Useful shop-output image without a visible customer name or person.",
+      "Not approved for public launch, paid ads, Google Business Profile, Facebook, or Instagram reposting.",
+    ],
+    liveConceptPlacements: ["homepage-gallery-tile-3"],
+    conceptCropNotes: ["Kept as a square gallery tile so the folded garments remain the focal point without enlarging the small export."],
+    conceptAltText: "Folded shirts stacked on shipping boxes in the shop",
+  },
+  "media-019": {
+    conceptUseApproved: true,
+    conceptUseNotes: [
+      "Allowed inside the private noindex concept preview only.",
+      "Safe equipment image with no visible people, customer marks, or private information.",
+      "Not approved for public launch, paid ads, Google Business Profile, Facebook, or Instagram reposting.",
+    ],
+    liveConceptPlacements: ["homepage-gallery-tile-1", "homepage-about-preview", "about-page-workshop-image"],
+    conceptCropNotes: [
+      "Homepage gallery keeps the square carousel composition as-is.",
+      "About placements keep the image in constrained 4:3 support frames and do not elevate it to a full-width hero.",
+    ],
+    conceptAltText: "Screen-printing carousel press set up for a garment run",
+  },
+};
+
+const defaultConceptFields: Pick<
+  MediaManifestItem,
+  "conceptUseApproved" | "conceptUseNotes" | "liveConceptPlacements" | "conceptCropNotes" | "conceptAltText"
+> = {
+  conceptUseApproved: false,
+  conceptUseNotes: [
+    "Not approved for use in the private concept preview at this time.",
+    "Reassess after owner review if the asset is still needed for the mockup.",
+  ],
+  liveConceptPlacements: [],
+  conceptCropNotes: [],
+  conceptAltText: null,
+};
+
+export const mediaManifest = mediaManifestBase.map((item) => ({
+  ...item,
+  ...(conceptMediaOverrides[item.id] ?? defaultConceptFields),
+  publicUseNotes: [
+    "Public-launch approval is still undocumented in the repository.",
+    "Do not treat concept-preview use as public-use approval.",
+  ],
+})) satisfies readonly MediaManifestItem[];
+
+export function getMediaById(id: string): MediaManifestItem | undefined {
+  return mediaManifest.find((item) => item.id === id);
+}
+
+export function getConceptApprovedMedia(): MediaManifestItem[] {
+  return mediaManifest.filter((item) => item.conceptUseApproved);
+}
+
+export function toPublicImagePath(path: string): string {
+  return path.startsWith("public/") ? path.slice("public".length) : path;
+}
