@@ -18,7 +18,7 @@
  * To switch into production mode after HisWay approves this site:
  * 1. Set `isConceptSite` to `false` in this file
  * 2. Confirm `siteUrl` matches the final live domain
- * 3. Fill in verified `address`, `hours`, and Google review fields in `reviews.ts`
+ * 3. Fill in verified `hours` and any remaining Google review fields in `reviews.ts`
  * 4. Replace placeholder photography with approved business-owned assets
  * 5. Redeploy
  *
@@ -33,8 +33,8 @@ export const company = {
   emailHref: "mailto:sales@hiswayss.com",
   /** Derived from the 210 area code and current branding. Confirm exact wording with the owner. */
   serviceArea: "San Antonio, Texas",
-  /** PLACEHOLDER: confirm street address with the owner before launch. */
-  address: null as string | null,
+  /** Verified business address supplied for the concept review pass. */
+  address: "4317 Stahl Rd, San Antonio, TX 78217",
   /** PLACEHOLDER: confirm business hours with the owner before launch. */
   hours: null as string | null,
   catalogUrl: "https://www.promoplace.com/hiswaypressorprint",

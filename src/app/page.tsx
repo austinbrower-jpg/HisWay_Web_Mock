@@ -22,7 +22,10 @@ export default function HomePage() {
       <WhyHisWay />
       <FeaturedReviews
         heading="Reputation built project by project"
-        lead="Verified Google reviews will land here before launch. Until then, the work and the process speak for the shop."
+        lead="Six reviews that highlight patience, quality, communication, repeat trust, and dependable turnaround."
+        limit={6}
+        ctaHref="/reviews"
+        ctaLabel="Browse all selected reviews"
       />
       <PromoIntro />
       <Process />

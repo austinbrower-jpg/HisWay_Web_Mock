@@ -132,3 +132,10 @@ This repository contains **no** authentication, Supabase, or `/login` route. If 
 - Kept all 22 manifest assets at `publicUseApproved: false`; only `media-004`, `media-007`, `media-018`, and `media-019` remain approved for private noindex concept use.
 - Reconfirmed `company.isConceptSite: true`, `noindex, nofollow` behavior, successful Vercel deployment, and passing `lint`, `tsc`, `build`, and contact-sheet generation checks.
 - Owner approval is still required before any public launch, portfolio publication, social reuse, Google Business Profile use, or broader customer-facing media rollout.
+
+### 2026-07-14 (reviews pass)
+
+- Added a verified local Google reviews dataset with a 5.0 rating, 26-review count, curated featured excerpts, and service/category mappings for concept-safe testimonial placement.
+- Replaced review placeholders on the homepage and about page with real supplied customer feedback, plus a dedicated `/reviews` route and selective service-page testimonial modules.
+- Kept the site in `noindex, nofollow` concept mode, preserved all provisional media as `publicUseApproved: false`, and left the immutable intake archive untouched.
+- Continued using only supplied review text, trimmed select excerpts with visible ellipses for layout, and avoided customer review photos or unsupported project claims.

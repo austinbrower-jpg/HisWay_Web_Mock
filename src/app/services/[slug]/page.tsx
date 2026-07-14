@@ -20,7 +20,6 @@ import { conceptServiceHeroMedia } from "@/data/concept-media";
 const REVIEW_ENABLED_SERVICES = new Set([
   "custom-signs",
   "screen-printing-apparel",
-  "vehicle-graphics",
   "embroidery",
   "banners-decals-stickers",
 ]);
