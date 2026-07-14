@@ -116,7 +116,9 @@ export default function AboutPage() {
 
       <FeaturedReviews
         heading="Trust earned in San Antonio"
-        lead="Once verified Google reviews are confirmed, they will appear here alongside the shop story."
+        lead="A smaller sample of the customer feedback that backs up the shop story."
+        limit={3}
+        ctaHref="/reviews"
       />
 
       <QuoteCta heading="Ready to start a project?" showReviewRequest />

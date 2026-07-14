@@ -5,6 +5,7 @@ import {
   trustSignals,
 } from "@/data/reviews";
 import { Reveal } from "@/components/ui/Reveal";
+import { ReviewStars } from "@/components/reviews/ReviewStars";
 import { cn } from "@/lib/utils";
 
 const trustIcons = [MapPin, MessageSquare, ShieldCheck, Layers] as const;
@@ -15,10 +16,6 @@ interface ReviewTrustBarProps {
   variant?: "paper" | "ink";
 }
 
-/**
- * Restrained trust bar: verified Google metrics when available, otherwise
- * only safely stated operational promises (no invented ratings or counts).
- */
 export function ReviewTrustBar({ className, variant = "paper" }: ReviewTrustBarProps) {
   const dark = variant === "ink";
   const showMetrics = hasVerifiedReviewMetrics();
@@ -36,19 +33,16 @@ export function ReviewTrustBar({ className, variant = "paper" }: ReviewTrustBarP
         <Reveal>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
             {showMetrics ? (
-              <div className="shrink-0">
+              <div className="shrink-0 max-w-sm">
                 <p className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase">
                   Google reviews
                 </p>
-                <p className="mt-1 font-display text-3xl font-bold uppercase tracking-wide">
-                  <span className="text-accent">{googleReviews.exactGoogleRating}</span>
-                  <span className={cn("mx-2 text-lg font-semibold", dark ? "text-muted-dark" : "text-muted")}>
-                    /
-                  </span>
-                  <span className="text-2xl">5</span>
+                <ReviewStars rating={5} className="mt-3" />
+                <p className="mt-3 font-display text-3xl font-bold uppercase tracking-wide sm:text-4xl">
+                  {googleReviews.exactGoogleRating.toFixed(1)} from {googleReviews.exactGoogleReviewCount}
                 </p>
-                <p className={cn("mt-1 text-sm", dark ? "text-muted-dark" : "text-muted")}>
-                  {googleReviews.exactGoogleReviewCount} verified Google reviews
+                <p className={cn("mt-2 text-sm", dark ? "text-muted-dark" : "text-muted")}>
+                  Google reviews mentioning shirts, hats, signs, banners, stickers, and responsive service.
                 </p>
               </div>
             ) : (

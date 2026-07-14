@@ -1,107 +1,78 @@
-import { ReviewPlaceholderState } from "@/components/reviews/ReviewPlaceholderState";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ButtonLink } from "@/components/ui/Button";
 import {
   getFeaturedReviews,
   getVerifiedReviews,
   hasVerifiedReviewMetrics,
   googleReviews,
-  type GoogleReview,
 } from "@/data/reviews";
+import { ReviewCard } from "@/components/reviews/ReviewCard";
+import { ReviewStars } from "@/components/reviews/ReviewStars";
 import { cn } from "@/lib/utils";
 
 interface FeaturedReviewsProps {
   className?: string;
   heading?: string;
   lead?: string;
-  /** Maximum number of featured reviews to show when verified data exists. */
   limit?: number;
+  ctaHref?: string;
+  ctaLabel?: string;
 }
 
-function StarRow({ rating }: { rating: number }) {
-  return (
-    <div className="flex gap-0.5" aria-label={`${rating} out of 5 stars`}>
-      {Array.from({ length: 5 }, (_, i) => (
-        <span
-          key={i}
-          className={cn(
-            "font-display text-lg leading-none",
-            i < rating ? "text-accent" : "text-line",
-          )}
-          aria-hidden="true"
-        >
-          ★
-        </span>
-      ))}
-    </div>
-  );
-}
-
-function ReviewCard({ review }: { review: GoogleReview }) {
-  return (
-    <article className="flex h-full flex-col border border-line bg-paper p-6 sm:p-7">
-      <StarRow rating={review.starRating} />
-      <blockquote className="mt-4 flex-1 text-base leading-relaxed text-ink sm:text-lg">
-        “{review.reviewText}”
-      </blockquote>
-      <footer className="mt-6 border-t border-line pt-4">
-        <p className="font-display text-base font-semibold uppercase tracking-wide text-ink">
-          {review.reviewerName}
-        </p>
-        <p className="mt-0.5 font-mono text-xs tracking-wide text-muted uppercase">
-          Google review
-          {review.reviewDate ? ` · ${review.reviewDate}` : ""}
-        </p>
-      </footer>
-    </article>
-  );
-}
-
-/**
- * Featured Google reviews. Renders a polished placeholder when no verified
- * review data has been supplied yet — never fabricated quotes or stars.
- */
 export function FeaturedReviews({
   className,
-  heading = "What customers say",
-  lead = "Verified Google feedback will appear here once HisWay confirms the exact reviews for public use.",
-  limit = 3,
+  heading = "What customers say most often",
+  lead = "Customer feedback pointing to the same themes again and again: patience, quality, communication, and reliable turnaround.",
+  limit = 4,
+  ctaHref,
+  ctaLabel = "Read more reviews",
 }: FeaturedReviewsProps) {
   const featured = getFeaturedReviews().slice(0, limit);
   const fallback = getVerifiedReviews().slice(0, limit);
   const reviews = featured.length > 0 ? featured : fallback;
-  const hasReviews = reviews.length > 0;
 
   return (
     <section className={cn("bg-paper py-16 lg:py-20", className)}>
       <div className="container-site">
         <Reveal>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading title={heading} lead={hasReviews ? undefined : lead} />
-            {hasReviews && hasVerifiedReviewMetrics() && (
-              <p className="font-mono text-sm text-muted">
-                <span className="font-semibold text-ink">{googleReviews.exactGoogleRating}</span>
-                {" / 5 · "}
-                {googleReviews.exactGoogleReviewCount} Google reviews
-              </p>
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-end">
+            <SectionHeading title={heading} lead={lead} />
+            {hasVerifiedReviewMetrics() && (
+              <div className="border border-line bg-paper-2 p-5 sm:p-6">
+                <p className="font-mono text-[10px] tracking-[0.22em] text-muted uppercase">
+                  Google reviews
+                </p>
+                <ReviewStars rating={5} className="mt-3" />
+                <p className="mt-3 font-display text-3xl font-semibold uppercase tracking-wide text-ink">
+                  {googleReviews.exactGoogleRating.toFixed(1)} from {googleReviews.exactGoogleReviewCount} Google reviews
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  Verified review copy supplied for this concept preview. No customer review photos are shown.
+                </p>
+              </div>
             )}
           </div>
         </Reveal>
 
-        {hasReviews ? (
-          <ul className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reviews.map((review, index) => (
-              <li key={review.id}>
-                <Reveal delay={index * 0.08} className="h-full">
-                  <ReviewCard review={review} />
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="mt-10">
-            <ReviewPlaceholderState />
-          </div>
+        <ul className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {reviews.map((review, index) => (
+            <li key={review.id}>
+              <Reveal delay={index * 0.08} className="h-full">
+                <ReviewCard review={review} preferShortText showTags variant="featured" />
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+
+        {ctaHref && (
+          <Reveal delay={0.12}>
+            <div className="mt-10 flex justify-start">
+              <ButtonLink href={ctaHref} variant="outline-dark">
+                {ctaLabel}
+              </ButtonLink>
+            </div>
+          </Reveal>
         )}
       </div>
     </section>

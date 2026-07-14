@@ -2,10 +2,10 @@ import { ReviewPlaceholderState } from "@/components/reviews/ReviewPlaceholderSt
 import { Reveal } from "@/components/ui/Reveal";
 import {
   getReviewsForService,
-  type GoogleReview,
 } from "@/data/reviews";
 import type { ServiceSlug } from "@/types";
 import { cn } from "@/lib/utils";
+import { ReviewCard } from "@/components/reviews/ReviewCard";
 
 interface ServiceReviewProps {
   service: ServiceSlug;
@@ -13,41 +13,6 @@ interface ServiceReviewProps {
   /** When true, hide the block entirely if no verified service reviews exist. */
   hideWhenEmpty?: boolean;
 }
-
-function CompactReview({ review }: { review: GoogleReview }) {
-  return (
-    <article className="border border-line bg-paper p-5 sm:p-6">
-      <div className="flex gap-0.5" aria-label={`${review.starRating} out of 5 stars`}>
-        {Array.from({ length: 5 }, (_, i) => (
-          <span
-            key={i}
-            className={cn(
-              "font-display text-base leading-none",
-              i < review.starRating ? "text-accent" : "text-line",
-            )}
-            aria-hidden="true"
-          >
-            ★
-          </span>
-        ))}
-      </div>
-      <blockquote className="mt-3 text-[15px] leading-relaxed text-ink">
-        “{review.reviewText}”
-      </blockquote>
-      <p className="mt-4 font-display text-sm font-semibold uppercase tracking-wide text-ink">
-        {review.reviewerName}
-      </p>
-      <p className="mt-0.5 font-mono text-[10px] tracking-wide text-muted uppercase">
-        Google review
-      </p>
-    </article>
-  );
-}
-
-/**
- * Service-scoped review placement. Matches verified reviews to a service slug
- * once real Google feedback is entered in `src/data/reviews.ts`.
- */
 export function ServiceReview({
   service,
   className,
@@ -67,8 +32,11 @@ export function ServiceReview({
             Customer feedback
           </p>
           <h2 className="mt-2 heading-display text-3xl text-ink sm:text-4xl">
-            Related Google reviews
+            Reviews tied to this kind of work
           </h2>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+            A few Google reviews that directly mention this service or the kind of outcome people were hiring HisWay for.
+          </p>
         </Reveal>
 
         {reviews.length > 0 ? (
@@ -76,7 +44,7 @@ export function ServiceReview({
             {reviews.map((review, index) => (
               <li key={review.id}>
                 <Reveal delay={index * 0.08}>
-                  <CompactReview review={review} />
+                  <ReviewCard review={review} variant="compact" preferShortText />
                 </Reveal>
               </li>
             ))}

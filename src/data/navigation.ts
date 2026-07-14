@@ -15,6 +15,7 @@ export const quoteCta: NavLink = { label: "Request a Quote", href: "/quote" };
 
 export const footerCompanyLinks: NavLink[] = [
   { label: "Our Work", href: "/work" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Promotional Products", href: "/promotional-products" },
   { label: "Industries", href: "/industries" },
   { label: "About", href: "/about" },
