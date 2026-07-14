@@ -77,6 +77,8 @@ Operational and growth docs live in [`docs/`](docs/):
 | Document | Purpose |
 | --- | --- |
 | `content-and-photo-intake.md` | How to collect owned photography with permission |
+| `media-owner-review-guide.md` | Concise owner-session guide for deciding concept, public web, and portfolio use |
+| `media-owner-approval-checklist.md` | Detailed worksheet for the same media approval session |
 | `placeholder-replacement-map.md` | Every placeholder asset and what should replace it |
 | `project-publishing-workflow.md` | Website → GBP → social → review loop |
 | `seo-keyword-map.md` | Seed keywords + page-to-intent map (validation required) |
@@ -146,3 +148,10 @@ This repository contains **no** authentication, Supabase, or `/login` route. If 
 - Revalidated `lint`, `tsc`, `build`, and contact-sheet generation before merging PR #5, then rechecked the merged `main` state for `noindex, nofollow`, four concept-only media approvals, and zero public media approvals.
 - Verified responsive behavior across `/`, `/about`, `/reviews`, `/services/embroidery`, and `/services/banners-decals-stickers`, including the concept photography on the homepage/about/embroidery views and the `5.0 from 26 Google reviews` trust content.
 - Left customer review photos, public media approvals, and unsupported customer project claims out of the concept site pending owner approval and future production planning.
+
+### 2026-07-14 (media approval prep)
+
+- Added the owner-facing `docs/media-owner-review-guide.md` and linked it from the planning-docs index for easier review-session use.
+- Prepared the broader media shortlist, missing-photo checklist, and phased rollout plan without changing any approval flags or introducing review photos.
+- Kept all intake assets at `publicUseApproved: false`, left concept mode in `noindex, nofollow`, avoided new customer portfolio entries, and left `Branding/images/intake/originals/` unchanged.
+- Revalidated `npm run lint`, `npx tsc --noEmit`, `npm run build`, and `node scripts/generate-media-contact-sheets.mjs` successfully.
