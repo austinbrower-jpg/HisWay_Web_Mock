@@ -123,3 +123,12 @@ Quote and Contact forms are **presentation mocks**:
 ## Auth / `/login` note
 
 This repository contains **no** authentication, Supabase, or `/login` route. If a `/login` request with a Supabase-related error appears during local development, it is coming from the browser environment or an extension — not from this application.
+
+## Development updates
+
+### 2026-07-14
+
+- Merged PR #4 into `main` to introduce provisional concept-only media on the homepage, about page, and embroidery service page.
+- Kept all 22 manifest assets at `publicUseApproved: false`; only `media-004`, `media-007`, `media-018`, and `media-019` remain approved for private noindex concept use.
+- Reconfirmed `company.isConceptSite: true`, `noindex, nofollow` behavior, successful Vercel deployment, and passing `lint`, `tsc`, `build`, and contact-sheet generation checks.
+- Owner approval is still required before any public launch, portfolio publication, social reuse, Google Business Profile use, or broader customer-facing media rollout.
