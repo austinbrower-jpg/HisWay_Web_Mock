@@ -139,3 +139,10 @@ This repository contains **no** authentication, Supabase, or `/login` route. If 
 - Replaced review placeholders on the homepage and about page with real supplied customer feedback, plus a dedicated `/reviews` route and selective service-page testimonial modules.
 - Kept the site in `noindex, nofollow` concept mode, preserved all provisional media as `publicUseApproved: false`, and left the immutable intake archive untouched.
 - Continued using only supplied review text, trimmed select excerpts with visible ellipses for layout, and avoided customer review photos or unsupported project claims.
+
+### 2026-07-14 (main merge follow-up)
+
+- Confirmed PR #4 and PR #5 now coexist on `main`, so the concept-media implementation and verified reviews experience are both present in the latest branch tip.
+- Revalidated `lint`, `tsc`, `build`, and contact-sheet generation before merging PR #5, then rechecked the merged `main` state for `noindex, nofollow`, four concept-only media approvals, and zero public media approvals.
+- Verified responsive behavior across `/`, `/about`, `/reviews`, `/services/embroidery`, and `/services/banners-decals-stickers`, including the concept photography on the homepage/about/embroidery views and the `5.0 from 26 Google reviews` trust content.
+- Left customer review photos, public media approvals, and unsupported customer project claims out of the concept site pending owner approval and future production planning.
