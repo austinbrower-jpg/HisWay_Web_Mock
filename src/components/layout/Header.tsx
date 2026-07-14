@@ -205,6 +205,7 @@ export function Header() {
             className="inline-flex h-11 w-11 items-center justify-center text-paper hover:text-accent lg:hidden"
             aria-label="Open menu"
             aria-expanded={mobileOpen}
+            aria-controls="mobile-nav-panel"
             onClick={() => setMobileOpen(true)}
           >
             <Menu className="h-6 w-6" aria-hidden="true" />
