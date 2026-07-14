@@ -1,10 +1,16 @@
 import { cn } from "@/lib/utils";
 
-type BrandLogoVariant = "horizontal" | "badge";
+type BrandLogoVariant = "horizontal" | "horizontal-white" | "badge";
 
 const logos = {
   horizontal: {
     src: "/images/brand/hisway-horizontal-logo.webp",
+    width: 1500,
+    height: 947,
+    alt: "HisWay Press or Print",
+  },
+  "horizontal-white": {
+    src: "/images/brand/hisway-horizontal-logo-white.webp",
     width: 1500,
     height: 947,
     alt: "HisWay Press or Print",

@@ -186,3 +186,11 @@ This repository contains **no** authentication, Supabase, or `/login` route. If 
 - Reduced primary-link size/padding slightly to ease the text-dense feel, and wired `aria-controls`/`id` between the header trigger and the dialog. No links, pages, or copy were removed, reordered, or rewritten.
 - Verified focus-in-on-open, Tab/Shift+Tab trap and wrap, Escape-to-close, focus-return-to-trigger, body scroll lock, and ≥44px touch targets. Tested at 320×568, 375×667, 390×844, 430×932, one landscape phone, one tablet, and desktop; desktop navigation and footer are unchanged.
 - Added `docs/mobile-navigation.md`. Revalidated `npm run lint`, `npx tsc --noEmit`, and `npm run build`.
+
+### 2026-07-14 (transparent header logo)
+
+- Replaced the boxed desktop header logo with the transparent horizontal wordmark, removing the white panel/border/padding that only existed because the previous artwork wasn't transparent.
+- Discovered the black source artwork has effectively zero contrast on the dark header background (`bg-ink`), so generated `public/images/brand/hisway-horizontal-logo-white.webp` — a true recolor of the same alpha/silhouette to white (verified byte-identical alpha channel), not a color inversion or CSS filter.
+- Desktop header now renders the white horizontal logo directly on the dark background at its original aspect ratio, with explicit width/height to avoid CLS. Mobile header/nav, footer, and app icons are unchanged.
+- Updated `docs/brand-assets.md` with the new asset, its derivation, and light/dark usage guidance.
+- Revalidated `npm run lint`, `npx tsc --noEmit`, and `npm run build`.
