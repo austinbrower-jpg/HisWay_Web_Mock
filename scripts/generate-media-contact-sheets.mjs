@@ -43,12 +43,37 @@ function getSourceFiles() {
     .map((name) => resolve(sourceDir, name));
 }
 
-function wrapFilenameLabel(filename, chunkSize = 24) {
-  const chunks = [];
-  for (let index = 0; index < filename.length; index += chunkSize) {
-    chunks.push(filename.slice(index, index + chunkSize));
+function wrapFilenameLabel(filename, preferredLineLength = 22, maxLines = 3) {
+  const tokens =
+    filename.match(/[^_\-\s]+(?:[_\-\s]+)?/g) ?? [filename];
+  const lines = [];
+  let currentLine = "";
+
+  for (const token of tokens) {
+    const nextLine = `${currentLine}${token}`;
+    if (
+      currentLine &&
+      nextLine.trimEnd().length > preferredLineLength &&
+      lines.length < maxLines - 1
+    ) {
+      lines.push(currentLine.trimEnd());
+      currentLine = token;
+      continue;
+    }
+    currentLine = nextLine;
   }
-  return chunks.join("\n");
+
+  if (currentLine) {
+    lines.push(currentLine.trimEnd());
+  }
+
+  if (lines.length <= maxLines) {
+    return lines.join("\n");
+  }
+
+  const visibleLines = lines.slice(0, maxLines - 1);
+  visibleLines.push(lines.slice(maxLines - 1).join(""));
+  return visibleLines.join("\n");
 }
 
 function createTile({ sourcePath, tilePath, fontPath }) {

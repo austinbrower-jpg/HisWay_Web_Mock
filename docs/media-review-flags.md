@@ -12,6 +12,10 @@
 - `media-008` · `487436078_1206337194832976_6951604778239930877_n.jpg` · useful behind-the-scenes story image, but it is busy and better as supporting content
 - `media-021` · `671817477_18109800268850432_5104832856624517656_n.jpg` · interesting process shot, though the foreground obstruction weakens it
 
+## Limited Supporting Use With Constraints
+
+- `media-019` · `648197257_18105225670850432_5912874579191392931_n.jpg` · acceptable only as a constrained support image or multi-image gallery tile; not suitable for a full-width hero, homepage featured card, or standalone portfolio cover
+
 ## Usable Only For Small Placement
 
 - `media-002` · `465951913_18058193854850432_8798094120774455540_n.jpg` · crisp enough for a small apparel detail, not for large layouts
@@ -20,11 +24,10 @@
 - `media-012` · `492302932_1230937602372935_7867351836082741973_n.jpg` · apparel artwork detail only
 - `media-013` · `493750477_1235807298552632_8606438870494362077_n.jpg` · headwear detail only
 - `media-014` · `493844687_1231240075676021_520584999099227054_n.jpg` · platen close-up only
-- `media-015` · `514725584_18080942011850432_4410235230271741118_n.jpg` · sticker/product shot only
-- `media-016` · `524724025_18083355733850432_1208968467761440341_n.jpg` · embroidered cap group shot only
-- `media-017` · `587711789_18098039869850432_16595990819186331_n.jpg` · small process/apparel shot only
+- `media-015` · `514725584_18080942011850432_4410235230271741118_n.jpg` · sticker/product shot only; acceptable for a constrained gallery detail but not for featured work, service heroes, or portfolio covers
+- `media-016` · `524724025_18083355733850432_1208968467761440341_n.jpg` · embroidered cap group shot only; acceptable for a constrained gallery detail but not for service heroes, promo-page feature art, or portfolio covers
+- `media-017` · `587711789_18098039869850432_16595990819186331_n.jpg` · small process/apparel shot only; acceptable for a constrained gallery detail but not for homepage features, service heroes, or portfolio covers
 - `media-018` · `604382287_18098581804850432_6385037112064078762_n.jpg` · good atmosphere but still only a small square export
-- `media-019` · `648197257_18105225670850432_5912874579191392931_n.jpg` · strong composition, limited by source size
 - `media-020` · `658963792_18109995742850432_3651576718302677868_n.jpg` · sticker sheet detail only
 - `media-022` · `696950336_18112725988850432_4201697764266807428_n.jpg` · boxed order shot only
 
