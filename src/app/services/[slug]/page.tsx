@@ -87,7 +87,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
               alt={heroMedia?.alt ?? service.heroImageAlt}
               aspect="aspect-[16/10]"
               sizes="(min-width: 1024px) 40vw, 100vw"
-              priority
+              preload
+              loading="eager"
               marks
               imageClassName={heroMedia?.imageClassName}
             />

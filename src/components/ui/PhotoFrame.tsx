@@ -7,6 +7,9 @@ interface PhotoFrameProps {
   /** Tailwind aspect class, e.g. "aspect-[4/3]". */
   aspect?: string;
   sizes?: string;
+  preload?: boolean;
+  loading?: "eager" | "lazy";
+  /** @deprecated Use `preload` instead. */
   priority?: boolean;
   /** Print-proof crop marks on the corners. Use sparingly (hero, about). */
   marks?: boolean;
@@ -23,12 +26,16 @@ export function PhotoFrame({
   alt,
   aspect = "aspect-[4/3]",
   sizes = "(min-width: 1024px) 50vw, 100vw",
+  preload = false,
+  loading,
   priority = false,
   marks = false,
   className,
   imageClassName,
 }: PhotoFrameProps) {
   const isSvg = src.endsWith(".svg");
+  const shouldPreload = preload || priority;
+  const resolvedLoading = loading ?? (shouldPreload ? "eager" : undefined);
   return (
     <div className={cn("relative", className)}>
       <div className={cn("relative overflow-hidden bg-paper-2", aspect)}>
@@ -37,7 +44,8 @@ export function PhotoFrame({
           alt={alt}
           fill
           sizes={sizes}
-          priority={priority}
+          preload={shouldPreload}
+          loading={resolvedLoading}
           unoptimized={isSvg}
           className={cn("object-cover", imageClassName)}
         />

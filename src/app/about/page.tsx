@@ -31,6 +31,7 @@ export default function AboutPage() {
               src={conceptAboutWorkshop.src}
               alt={conceptAboutWorkshop.alt}
               aspect="aspect-[4/3]"
+              loading="eager"
               marks
               imageClassName={conceptAboutWorkshop.imageClassName}
             />

@@ -47,7 +47,8 @@ export function Hero() {
             alt={conceptHomepageHero.alt}
             aspect="aspect-[4/3] lg:aspect-[4/5]"
             sizes="(min-width: 1024px) 40vw, 100vw"
-            priority
+            preload
+            loading="eager"
             marks
             imageClassName={conceptHomepageHero.imageClassName}
           />
