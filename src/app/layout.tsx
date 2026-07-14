@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   },
   description:
     "Custom signs, screen printing, embroidery, vehicle graphics, and promotional products for San Antonio businesses. Personal service from concept through completion.",
+  robots: company.isConceptSite
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
   openGraph: {
     type: "website",
     siteName: company.name,
@@ -48,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body
         className={`${barlow.variable} ${barlowCondensed.variable} ${plexMono.variable} flex min-h-dvh flex-col antialiased`}
       >

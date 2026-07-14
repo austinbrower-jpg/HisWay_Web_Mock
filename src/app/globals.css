@@ -61,8 +61,15 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  /*
+   * Smooth scrolling is intentional for in-page anchors.
+   * data-scroll-behavior="smooth" on <html> tells Next.js 16 to temporarily
+   * disable it during route transitions (avoids the missing-data-scroll-behavior warning).
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {

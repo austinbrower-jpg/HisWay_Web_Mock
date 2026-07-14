@@ -12,7 +12,17 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Process } from "@/components/sections/home/Process";
 import { QuoteCta } from "@/components/sections/QuoteCta";
+import { ServiceReview } from "@/components/reviews/ServiceReview";
 import { cn } from "@/lib/utils";
+
+/** Services that benefit from a service-scoped review module. */
+const REVIEW_ENABLED_SERVICES = new Set([
+  "custom-signs",
+  "screen-printing-apparel",
+  "vehicle-graphics",
+  "embroidery",
+  "banners-decals-stickers",
+]);
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -27,8 +37,8 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: service.name,
-    description: `${service.tagline} ${service.summary}`,
+    title: `${service.name} in San Antonio`,
+    description: `${service.tagline} Serving San Antonio businesses with personal service from concept through completion.`,
   };
 }
 
@@ -104,6 +114,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       <Process heading="How your project will run" />
+
+      {REVIEW_ENABLED_SERVICES.has(slug) && <ServiceReview service={service.slug} />}
 
       {/* FAQ */}
       <section className="border-t border-line bg-paper py-16 lg:py-20">

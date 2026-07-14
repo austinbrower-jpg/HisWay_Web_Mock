@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { projects } from "@/data/projects";
+import { projects, projectCategories } from "@/data/projects";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { WorkPortfolio } from "@/components/sections/work/WorkPortfolio";
 import { QuoteCta } from "@/components/sections/QuoteCta";
 
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "Sample sign, apparel, vehicle graphic, and promotional product projects showing what the HisWay shop produces.",
+    "Sign, apparel, vehicle graphic, and promotional product projects from HisWay Press or Print in San Antonio.",
 };
-
-import { projectCategories } from "@/data/projects";
-import { WorkPortfolio } from "@/components/sections/work/WorkPortfolio";
 
 export default function WorkPage() {
   return (

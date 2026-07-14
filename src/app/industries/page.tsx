@@ -10,7 +10,7 @@ import { QuoteCta } from "@/components/sections/QuoteCta";
 export const metadata: Metadata = {
   title: "Industries",
   description:
-    "Signage, apparel, and promotional products for restaurants, construction, schools, churches, offices, retail, and events.",
+    "Signage, apparel, and promotional products for San Antonio restaurants, construction, schools, churches, offices, retail, and events.",
 };
 
 export default function IndustriesPage() {

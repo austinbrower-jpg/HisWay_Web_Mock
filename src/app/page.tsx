@@ -7,21 +7,30 @@ import { Process } from "@/components/sections/home/Process";
 import { IndustriesStrip } from "@/components/sections/home/IndustriesStrip";
 import { AboutPreview } from "@/components/sections/home/AboutPreview";
 import { RecentGallery } from "@/components/sections/home/RecentGallery";
+import { LocalPresence } from "@/components/sections/home/LocalPresence";
 import { QuoteCta } from "@/components/sections/QuoteCta";
+import { ReviewTrustBar } from "@/components/reviews/ReviewTrustBar";
+import { FeaturedReviews } from "@/components/reviews/FeaturedReviews";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
+      <ReviewTrustBar />
       <ServicesOverview />
       <FeaturedWork />
       <WhyHisWay />
+      <FeaturedReviews
+        heading="Reputation built project by project"
+        lead="Verified Google reviews will land here before launch. Until then, the work and the process speak for the shop."
+      />
       <PromoIntro />
       <Process />
       <IndustriesStrip />
       <AboutPreview />
       <RecentGallery />
-      <QuoteCta />
+      <LocalPresence />
+      <QuoteCta showReviewRequest />
     </>
   );
 }

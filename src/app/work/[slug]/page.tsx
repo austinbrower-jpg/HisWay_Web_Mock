@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const project = getProject(slug);
   if (!project) return {};
   return {
-    title: project.title,
-    description: project.summary,
+    title: project.seoTitle || project.title,
+    description: project.seoDescription || project.summary,
   };
 }
 

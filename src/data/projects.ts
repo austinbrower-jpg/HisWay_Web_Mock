@@ -5,6 +5,11 @@ import type { Project, ProjectCategory } from "@/types";
  * These six projects are realistic but intentionally anonymous: no customer
  * names, no fabricated results. Replace the copy and the placeholder images
  * in /public/images/projects with real HisWay projects and photography.
+ *
+ * Extended optional fields on the Project type (customerName, completionDate,
+ * materials, decorationMethod, location, customerPermission, social URLs,
+ * connectedReviewId, SEO overrides) must stay unset or null until verified.
+ * Do not invent customer identities, permissions, or results.
  */
 export const projects: Project[] = [
   {
