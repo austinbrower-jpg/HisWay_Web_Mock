@@ -8,11 +8,16 @@ export interface ConceptImageSlot {
   imageClassName?: string;
 }
 
-export interface ConceptGalleryTile {
-  src: string;
-  alt: string;
-  mediaId?: string;
-  imageClassName?: string;
+/**
+ * A Selected Work & Process card on /work.
+ *
+ * These are capability/process cards, not customer case studies. Labels and
+ * copy must describe what the photograph actually shows and must never imply
+ * a named customer project, since no customer-work photography is approved.
+ */
+export interface ConceptWorkCard extends ConceptImageSlot {
+  label: string;
+  description: string;
 }
 
 function requireConceptMedia(id: string) {
@@ -47,18 +52,37 @@ export const conceptServiceHeroMedia: Partial<Record<ServiceSlug, ConceptImageSl
   embroidery: makeImageSlot("media-004", "object-[56%_38%] md:object-[54%_40%]"),
 };
 
-export const conceptGalleryTiles: ConceptGalleryTile[] = [
+export const conceptGalleryTiles: ConceptImageSlot[] = [
   makeImageSlot("media-019", "object-center"),
   makeImageSlot("media-007", "object-center"),
   makeImageSlot("media-018", "object-center"),
   makeImageSlot("media-004", "object-[56%_40%]"),
+];
+
+/**
+ * /work cards. Square crops keep the three 414x414 sources at their native
+ * aspect so nothing is enlarged past what the export can carry.
+ */
+export const conceptWorkCards: ConceptWorkCard[] = [
   {
-    src: "/images/placeholders/gallery-5.svg",
-    alt: "Placeholder 5 for a recent work photo from the shop",
+    ...makeImageSlot("media-019", "object-center"),
+    label: "Screen Printing",
+    description: "Manual carousel press set up for a garment run.",
   },
   {
-    src: "/images/placeholders/gallery-6.svg",
-    alt: "Placeholder 6 for a recent work photo from the shop",
+    ...makeImageSlot("media-007", "object-center"),
+    label: "In-Shop Craftsmanship",
+    description: "Ink mixed and matched by hand before the first pull.",
+  },
+  {
+    ...makeImageSlot("media-018", "object-center"),
+    label: "Apparel Production",
+    description: "Finished orders folded, counted, and boxed for pickup.",
+  },
+  {
+    ...makeImageSlot("media-004", "object-[56%_40%]"),
+    label: "Embroidery Detail",
+    description: "Stitched detail on HisWay's own embroidered goods.",
   },
 ];
 

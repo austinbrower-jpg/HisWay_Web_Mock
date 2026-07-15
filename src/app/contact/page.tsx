@@ -56,12 +56,9 @@ export default function ContactPage() {
                   </h2>
                   <div className="mt-3 space-y-2 text-muted">
                     <p>{company.address ? company.address : "Location to be confirmed"}</p>
-                    <p>{company.hours ? company.hours : "Hours to be confirmed"}</p>
-                    {(!company.address || !company.hours) && (
-                      <p className="mt-2 font-mono text-xs tracking-wider text-accent uppercase">
-                        [Placeholder: Confirm address and hours with owner]
-                      </p>
-                    )}
+                    {/* Hours are not yet on file. Fall back to customer-facing copy rather
+                        than an internal note; the phone number sits directly above. */}
+                    <p>{company.hours ? company.hours : "Call for current hours."}</p>
                   </div>
                 </div>
 

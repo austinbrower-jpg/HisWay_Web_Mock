@@ -1,6 +1,5 @@
 import { Hero } from "@/components/sections/home/Hero";
 import { ServicesOverview } from "@/components/sections/home/ServicesOverview";
-import { FeaturedWork } from "@/components/sections/home/FeaturedWork";
 import { WhyHisWay } from "@/components/sections/home/WhyHisWay";
 import { PromoIntro } from "@/components/sections/home/PromoIntro";
 import { Process } from "@/components/sections/home/Process";
@@ -18,7 +17,6 @@ export default function HomePage() {
       <Hero />
       <ReviewTrustBar />
       <ServicesOverview />
-      <FeaturedWork />
       <WhyHisWay />
       <FeaturedReviews
         heading="Reputation built project by project"

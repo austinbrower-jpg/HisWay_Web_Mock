@@ -30,31 +30,22 @@ export function RecentGallery() {
         </Reveal>
       </div>
 
+      {/* Four approved photos sit in a full-width grid rather than a scroller:
+          with the placeholder tiles gone there is nothing left to scroll to. */}
       <Reveal className="mt-10" delay={0.12}>
-        <div
-          className="overflow-x-auto pb-4 [scrollbar-width:thin]"
-          tabIndex={0}
-          role="region"
-          aria-label="Recent work photos, scrollable"
-        >
-          <ul className="container-site flex w-max gap-3">
-            {conceptGalleryTiles.map((tile) => (
-              <li
-                key={tile.src}
-                className="relative aspect-square w-52 shrink-0 overflow-hidden bg-paper-2 sm:w-60"
-              >
-                <Image
-                  src={tile.src}
-                  alt={tile.alt}
-                  fill
-                  sizes="240px"
-                  unoptimized={tile.src.endsWith(".svg")}
-                  className={cn("object-cover", tile.imageClassName)}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="container-site grid grid-cols-2 gap-3 lg:grid-cols-4">
+          {conceptGalleryTiles.map((tile) => (
+            <li key={tile.mediaId} className="relative aspect-square overflow-hidden bg-paper-2">
+              <Image
+                src={tile.src}
+                alt={tile.alt}
+                fill
+                sizes="(min-width: 1024px) 25vw, 50vw"
+                className={cn("object-cover", tile.imageClassName)}
+              />
+            </li>
+          ))}
+        </ul>
       </Reveal>
     </section>
   );

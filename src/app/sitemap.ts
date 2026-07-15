@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { company } from "@/data/company";
 import { services } from "@/data/services";
-import { projects } from "@/data/projects";
 
 /**
  * Concept mode returns an empty sitemap so the preview is not exposed as an
@@ -34,11 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const projectRoutes = projects.map((project) => ({
-    url: `${company.siteUrl}/work/${project.slug}`,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
+  // No per-project routes: /work is a single capability page until real,
+  // permission-cleared customer projects exist.
+  return [...staticRoutes, ...serviceRoutes];
 }

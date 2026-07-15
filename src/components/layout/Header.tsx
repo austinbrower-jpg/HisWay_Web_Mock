@@ -73,13 +73,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line-dark bg-ink">
       <div className="container-site flex h-[68px] items-center justify-between gap-6">
-        <Link href="/" aria-label="HisWay Press or Print, home" className="inline-flex shrink-0 items-center">
-          <span className="inline-flex items-center justify-center border border-line-dark bg-paper px-3 py-2 transition-colors hover:border-accent hover:bg-paper-2 lg:hidden">
-            <BrandLogo variant="badge" className="h-8 w-8 sm:h-9 sm:w-9" />
-          </span>
-          <span className="hidden items-center transition-opacity duration-150 hover:opacity-80 lg:flex">
-            <BrandLogo variant="horizontal-white" preload className="h-10 w-auto" />
-          </span>
+        <Link
+          href="/"
+          aria-label="HisWay Press or Print, home"
+          className="inline-flex shrink-0 items-center transition-opacity duration-150 hover:opacity-80"
+        >
+          <BrandLogo variant="horizontal-white" preload className="h-9 w-auto lg:h-10" />
         </Link>
 
         {/* Desktop navigation */}
