@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Mail, Phone } from "lucide-react";
 import { BrandLogo } from "@/components/layout/BrandLogo";
@@ -5,6 +6,12 @@ import { company } from "@/data/company";
 import { footerCompanyLinks, footerExternalLinks } from "@/data/navigation";
 import { services } from "@/data/services";
 import { conceptPreviewMediaNote } from "@/data/concept-media";
+
+/** Agency that built this site. Credited in the footer only. */
+const partnerAgency = {
+  name: "Battle Bound Branding LLC",
+  href: "https://battleboundbranding.com",
+} as const;
 
 export function Footer() {
   return (
@@ -106,18 +113,41 @@ export function Footer() {
       </div>
 
       <div className="border-t border-line-dark">
-        <div className="container-site flex flex-col gap-2 py-5 text-sm text-muted-dark sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-site flex flex-col gap-4 py-5 text-sm text-muted-dark sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <p>
             © {new Date().getFullYear()} {company.name}. All rights reserved.
           </p>
-          {company.isConceptSite && (
-            <div className="text-left sm:text-right">
-              <p className="font-mono text-xs tracking-wide uppercase">Concept preview site</p>
-              <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-dark/90">
-                {conceptPreviewMediaNote}
-              </p>
-            </div>
-          )}
+          <div className="flex flex-col gap-3 sm:items-end">
+            {company.isConceptSite && (
+              <div className="text-left sm:text-right">
+                <p className="font-mono text-xs tracking-wide uppercase">Concept preview site</p>
+                <p className="mt-1 max-w-md text-xs leading-relaxed text-muted-dark/90">
+                  {conceptPreviewMediaNote}
+                </p>
+              </div>
+            )}
+            <p className="flex flex-wrap items-center gap-y-1 text-xs text-muted-dark/60 sm:justify-end">
+              <span>Built by</span>
+              <a
+                href={partnerAgency.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center text-muted-dark/70 transition-colors hover:text-paper focus-visible:text-paper"
+              >
+                {/* The artwork ships with ~15px of built-in clear space at this size,
+                    so the link intentionally sets no horizontal gap of its own. */}
+                <Image
+                  src="/images/brand/partners/battle-bound-branding-white.png"
+                  alt=""
+                  width={54}
+                  height={18}
+                  className="h-[18px] w-[54px] shrink-0 opacity-70 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+                />
+                {partnerAgency.name}
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
