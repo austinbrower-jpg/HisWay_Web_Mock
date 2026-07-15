@@ -78,10 +78,10 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             <Link
               href="/"
               aria-label="HisWay Press or Print, home"
-              className="inline-flex shrink-0 items-center justify-center border border-line-dark bg-paper px-2.5 py-2 transition-colors hover:border-accent hover:bg-paper-2"
+              className="inline-flex shrink-0 items-center transition-opacity duration-150 hover:opacity-80"
               onClick={onClose}
             >
-              <BrandLogo variant="badge" className="h-9 w-9" />
+              <BrandLogo variant="horizontal-white" className="h-9 w-auto" />
             </Link>
             <button
               ref={closeButtonRef}

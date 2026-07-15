@@ -126,13 +126,15 @@ export function Footer() {
                 </p>
               </div>
             )}
-            <p className="flex flex-wrap items-center gap-y-1 text-xs text-muted-dark/60 sm:justify-end">
+            {/* Opacity floors at /80 so the 12px credit clears WCAG AA (5.2:1 on ink)
+                while staying visually secondary to the HisWay lockup above it. */}
+            <p className="flex flex-wrap items-center gap-y-1 text-xs text-muted-dark/80 sm:justify-end">
               <span>Built by</span>
               <a
                 href={partnerAgency.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center text-muted-dark/70 transition-colors hover:text-paper focus-visible:text-paper"
+                className="group inline-flex items-center text-muted-dark/80 transition-colors hover:text-paper focus-visible:text-paper"
               >
                 {/* The artwork ships with ~15px of built-in clear space at this size,
                     so the link intentionally sets no horizontal gap of its own. */}
@@ -141,7 +143,7 @@ export function Footer() {
                   alt=""
                   width={54}
                   height={18}
-                  className="h-[18px] w-[54px] shrink-0 opacity-70 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+                  className="h-[18px] w-[54px] shrink-0 opacity-80 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
                 />
                 {partnerAgency.name}
                 <span className="sr-only"> (opens in a new tab)</span>

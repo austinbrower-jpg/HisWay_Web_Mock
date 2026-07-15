@@ -8,39 +8,51 @@ import { conceptHomepageHero } from "@/data/concept-media";
 export function Hero() {
   return (
     <section className="overflow-x-clip bg-ink text-paper">
-      <div className="container-site grid items-center gap-10 py-14 pb-20 lg:grid-cols-12 lg:gap-14 lg:py-20 lg:pb-24">
-        <Reveal className="lg:col-span-7">
-          <h1 className="heading-display text-5xl sm:text-6xl lg:text-7xl">
-            Custom signs, apparel, and promotional products that get your business{" "}
-            <span className="text-accent">seen.</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-dark">
-            From storefront signage and vehicle graphics to branded apparel and promo
-            products, HisWay takes your project from concept through completion.
-          </p>
-          <div className="mt-8 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
-            <ButtonLink href="/quote" variant="primary" className="w-full sm:w-auto">
-              Request a Quote
-            </ButtonLink>
-            <ButtonLink href="/work" variant="outline" className="w-full sm:w-auto">
-              View Our Work
-            </ButtonLink>
-          </div>
-          <div className="mt-6">
-            <Link
-              href="/promotional-products"
-              className="group inline-flex items-center gap-2 font-display text-base font-semibold uppercase tracking-wide text-paper/80 transition-colors hover:text-accent"
-            >
-              Browse Promotional Products
-              <ArrowRight
-                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </Link>
-          </div>
-        </Reveal>
+      <div className="container-site grid items-center gap-8 py-14 pb-20 sm:gap-10 lg:grid-cols-12 lg:gap-14 lg:py-20 lg:pb-24">
+        {/*
+         * `contents` on mobile dissolves this wrapper so the copy and the CTAs
+         * become sibling grid items either side of the photo, letting the photo
+         * sit between them without a second <img>. At lg it becomes a real
+         * block-level grid item again, restoring the original two-column hero
+         * (order-* is inert under block layout, so desktop order is unchanged).
+         */}
+        <div className="contents lg:col-span-7 lg:block">
+          <Reveal className="order-1">
+            <h1 className="heading-display text-[2rem] sm:text-6xl lg:text-7xl">
+              Custom signs, apparel, and promotional products that get your business{" "}
+              <span className="text-accent">seen.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-dark sm:mt-6 sm:text-lg">
+              From storefront signage and vehicle graphics to branded apparel and promo
+              products, HisWay takes your project from concept through completion.
+            </p>
+          </Reveal>
 
-        <Reveal className="relative lg:col-span-5" delay={0.12}>
+          <Reveal className="order-3 lg:mt-8">
+            <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
+              <ButtonLink href="/quote" variant="primary" className="w-full sm:w-auto">
+                Request a Quote
+              </ButtonLink>
+              <ButtonLink href="/work" variant="outline" className="w-full sm:w-auto">
+                View Our Work
+              </ButtonLink>
+            </div>
+            <div className="mt-6">
+              <Link
+                href="/promotional-products"
+                className="group inline-flex items-center gap-2 font-display text-base font-semibold uppercase tracking-wide text-paper/80 transition-colors hover:text-accent"
+              >
+                Browse Promotional Products
+                <ArrowRight
+                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal className="relative order-2 lg:col-span-5" delay={0.12}>
           <div className="absolute -inset-3 -z-10 bg-ink-2 sm:-inset-4 md:-inset-6" aria-hidden="true" />
           <PhotoFrame
             src={conceptHomepageHero.src}

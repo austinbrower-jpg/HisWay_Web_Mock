@@ -53,14 +53,9 @@ export function ReviewRequestCta({
                   <span className="sr-only">(opens in a new tab)</span>
                 </a>
               ) : (
-                <>
-                  <ButtonLink href="/contact" variant="outline-dark">
-                    Contact the shop
-                  </ButtonLink>
-                  <p className="max-w-[14rem] font-mono text-[11px] leading-relaxed tracking-wide text-muted uppercase">
-                    Direct review link added after Google Business Profile confirmation
-                  </p>
-                </>
+                <ButtonLink href="/contact" variant="outline-dark">
+                  Contact the shop
+                </ButtonLink>
               )}
               <a
                 href={company.phoneHref}
