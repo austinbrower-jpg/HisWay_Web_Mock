@@ -80,8 +80,15 @@
 
 .logoWrap {
   position: relative;
-  width: min(540px, 74vw);
-  aspect-ratio: 1500 / 947;
+  /*
+   * Fluid width tuned to hit ~240px at a 360px viewport and ~420px at a
+   * 1440px viewport (desktop target 380-460px, mobile target 240-300px),
+   * hard-capped so the square mark never exceeds ~70vw / ~60vh on either
+   * axis (aspect-ratio 1/1 means one cap covers both dimensions).
+   */
+  width: clamp(240px, calc(180px + 16.667vw), 460px);
+  max-width: min(70vw, 60vh);
+  aspect-ratio: 1 / 1;
 }
 
 :global(html[data-hw-intro="full"]) .logoWrap {
@@ -96,8 +103,8 @@
 .mask {
   position: absolute;
   inset: 0;
-  -webkit-mask-image: url("/images/brand/hisway-horizontal-logo-white.webp");
-  mask-image: url("/images/brand/hisway-horizontal-logo-white.webp");
+  -webkit-mask-image: url("/images/brand/hisway-press-logo.svg");
+  mask-image: url("/images/brand/hisway-press-logo.svg");
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -129,7 +136,19 @@
   to { opacity: 0; }
 }
 
-.glow { background: var(--color-accent); filter: blur(16px); opacity: 0; }
+/*
+ * Outer bloom via layered drop-shadow rather than blur(): drop-shadow casts
+ * a soft halo from this layer's alpha silhouette without blurring the
+ * silhouette itself, so the seal's fine ring text stays crisp underneath
+ * (blur() would smear the tightly-packed small lettering into mush).
+ */
+.glow {
+  background: var(--color-accent);
+  opacity: 0;
+  filter:
+    drop-shadow(0 0 10px var(--color-accent))
+    drop-shadow(0 0 26px rgba(224, 89, 16, 0.55));
+}
 :global(html[data-hw-intro="full"]) .glow {
   animation: glowBloom 0.55s ease 1.3s both;
 }
@@ -159,7 +178,13 @@
 }
 
 /* Reduced-motion logo: already lit, no trace/flicker/scan. */
-.glowStatic { background: var(--color-accent); filter: blur(16px); opacity: 0.8; }
+.glowStatic {
+  background: var(--color-accent);
+  opacity: 0.8;
+  filter:
+    drop-shadow(0 0 10px var(--color-accent))
+    drop-shadow(0 0 26px rgba(224, 89, 16, 0.55));
+}
 .coreStatic { background: linear-gradient(180deg, #fffaf2, #ffe9cf); }
 
 /* ---------- electrical scan + sparks ---------- */
@@ -227,9 +252,12 @@
 /* ---------- caption ---------- */
 
 .caption {
-  position: absolute;
-  top: calc(50% + min(198px, 27vw));
-  margin: 0;
+  /*
+   * In-flow flex child (not absolutely positioned against the viewport)
+   * so the gap below the mark holds correctly now that the logo's own
+   * size is fluid (240-460px) rather than a single fixed old aspect ratio.
+   */
+  margin: 28px 0 0;
   font-family: var(--font-display);
   font-weight: 600;
   text-transform: uppercase;

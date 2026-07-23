@@ -58,7 +58,10 @@ export function CinematicLoader() {
     const node = mode === "full" ? fullRef.current : reducedRef.current;
 
     function onAnimationEnd(event: AnimationEvent) {
-      if (event.target === node && event.animationName === "overlayOut") {
+      // CSS Modules locally scope @keyframes names too (e.g.
+      // "CinematicLoader-module__hash__overlayOut"), so match the suffix
+      // rather than the exact original name.
+      if (event.target === node && event.animationName.endsWith("overlayOut")) {
         setHidden(true);
       }
     }
