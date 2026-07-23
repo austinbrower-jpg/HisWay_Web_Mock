@@ -7,7 +7,7 @@ const base =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap font-display text-base font-semibold uppercase tracking-wide transition-colors duration-200 active:translate-y-px";
 
 const variants: Record<Variant, string> = {
-  /** Accent fill with ink label (safety-label contrast); works on paper and ink backgrounds. */
+  /** Accent fill with ink label (high-contrast pairing); works on paper and ink backgrounds. */
   primary: "bg-accent text-ink hover:bg-accent-deep hover:text-paper",
   /** For dark (ink) backgrounds. */
   outline:

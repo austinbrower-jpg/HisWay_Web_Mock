@@ -2,7 +2,7 @@
 
 /*
  * HisWay Press or Print: design tokens.
- * Print-shop identity: warm paper, deep ink, one safety-orange accent.
+ * Print-shop identity: warm paper, deep ink, one muted gold/bronze accent.
  * Corner radius is locked to 0 site-wide (sharp, industrial, print-like).
  */
 @theme {
@@ -23,9 +23,9 @@
   --color-muted: #6c6860;
   --color-muted-dark: #aaa59a;
 
-  /* Accent: safety orange, one per site */
-  --color-accent: #e05910;
-  --color-accent-deep: #a83f0a;
+  /* Accent: approved HisWay gold, one per site */
+  --color-accent: #b8902f;
+  --color-accent-deep: #7f641f;
 }
 
 /* Font tokens reference next/font runtime variables, so they must be inline. */
@@ -81,11 +81,22 @@
 
   ::selection {
     background-color: var(--color-accent);
-    color: var(--color-paper);
+    /*
+     * Ink, not paper: the gold accent (#b8902f) is a mid-tone, so paper-on-
+     * accent only reaches ~2.8:1 (fails WCAG AA text contrast). Ink-on-accent
+     * reaches ~6.15:1, keeping selected text readable.
+     */
+    color: var(--color-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    /*
+     * accent-deep, not accent: the gold accent only reaches ~2.5-3:1 against
+     * the paper/paper-2 backgrounds most of the site's body content sits on,
+     * short of the 3:1 WCAG non-text-contrast minimum for a focus indicator.
+     * accent-deep clears 3:1 against paper, paper-2, ink, and white.
+     */
+    outline: 2px solid var(--color-accent-deep);
     outline-offset: 2px;
   }
 
@@ -122,12 +133,12 @@
   }
   45% {
     text-shadow:
-      0 0 26px rgba(224, 89, 16, 0.9),
-      0 0 8px rgba(224, 89, 16, 0.7);
+      0 0 26px rgba(184, 144, 47, 0.9),
+      0 0 8px rgba(184, 144, 47, 0.7);
     filter: brightness(1.35);
   }
   100% {
-    text-shadow: 0 0 14px rgba(224, 89, 16, 0.45);
+    text-shadow: 0 0 14px rgba(184, 144, 47, 0.45);
     filter: brightness(1);
   }
 }

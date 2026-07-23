@@ -69,7 +69,7 @@ export function Hero() {
             className="hw-hero-photo-ignite pointer-events-none absolute inset-0 opacity-0 mix-blend-screen"
             style={{
               background:
-                "radial-gradient(120% 80% at 56% 40%, rgba(255,196,120,.55) 0%, rgba(224,89,16,.28) 38%, rgba(224,89,16,0) 70%)",
+                "radial-gradient(120% 80% at 56% 40%, rgba(216,183,91,.55) 0%, rgba(184,144,47,.28) 38%, rgba(184,144,47,0) 70%)",
             }}
           />
           <div className="absolute -bottom-6 right-0 border-4 border-ink bg-accent px-5 py-3 text-ink shadow-lg sm:px-6 sm:py-4 md:-right-4 lg:-right-6">
