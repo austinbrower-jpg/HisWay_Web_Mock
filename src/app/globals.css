@@ -103,3 +103,51 @@
     }
   }
 }
+
+/*
+ * Cinematic loader hero sync (see src/components/intro/CinematicLoader.tsx).
+ *
+ * `data-hw-intro` is set on <html> before paint by the beforeInteractive
+ * script in src/app/layout.tsx. When the loader plays this session, these
+ * rules ignite the real hero's accent word and photo wash in step with the
+ * loader's own illumination/departure timing, so the handoff between the
+ * two reads as one continuous light-up rather than a loader + a page.
+ * Reversible: delete this block plus the two `hw-hero-*` classNames in
+ * Hero.tsx to fully revert.
+ */
+@keyframes hwAccentIgnite {
+  0% {
+    text-shadow: none;
+    filter: brightness(0.65);
+  }
+  45% {
+    text-shadow:
+      0 0 26px rgba(224, 89, 16, 0.9),
+      0 0 8px rgba(224, 89, 16, 0.7);
+    filter: brightness(1.35);
+  }
+  100% {
+    text-shadow: 0 0 14px rgba(224, 89, 16, 0.45);
+    filter: brightness(1);
+  }
+}
+
+@keyframes hwPhotoIgnite {
+  0% { opacity: 0; }
+  55% { opacity: 0.85; }
+  100% { opacity: 0.32; }
+}
+
+html[data-hw-intro="full"] .hw-hero-accent-ignite {
+  animation: hwAccentIgnite 0.9s ease 2.35s both;
+}
+html[data-hw-intro="full"] .hw-hero-photo-ignite {
+  animation: hwPhotoIgnite 1s ease 1.7s both;
+}
+
+html[data-hw-intro="reduced"] .hw-hero-accent-ignite {
+  animation: hwAccentIgnite 0.5s ease 0.95s both;
+}
+html[data-hw-intro="reduced"] .hw-hero-photo-ignite {
+  animation: hwPhotoIgnite 0.5s ease 0.6s both;
+}
