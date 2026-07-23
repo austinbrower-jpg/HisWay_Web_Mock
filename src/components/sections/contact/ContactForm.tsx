@@ -59,7 +59,7 @@ export function ContactForm() {
               type="text"
               id={`${formId}-name`}
               autoComplete="name"
-              className="mt-2 block w-full rounded-none border border-line bg-paper px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="mt-2 block w-full rounded-none border border-line bg-paper px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
             />
           </div>
           <div>
@@ -72,7 +72,7 @@ export function ContactForm() {
               type="email"
               id={`${formId}-email`}
               autoComplete="email"
-              className="mt-2 block w-full rounded-none border border-line bg-paper px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="mt-2 block w-full rounded-none border border-line bg-paper px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
             />
           </div>
         </div>
@@ -85,14 +85,14 @@ export function ContactForm() {
             name="message"
             id={`${formId}-message`}
             rows={5}
-            className="mt-2 block w-full rounded-none border border-line bg-paper px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+            className="mt-2 block w-full rounded-none border border-line bg-paper px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
           />
         </div>
         <div>
           <button
             type="submit"
             disabled={isSubmitting}
-            className="inline-flex h-12 items-center justify-center bg-ink px-8 font-display text-base font-semibold uppercase tracking-wide text-paper transition-colors hover:bg-accent hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-70"
+            className="inline-flex h-12 items-center justify-center bg-ink px-8 font-display text-base font-semibold uppercase tracking-wide text-paper transition-colors hover:bg-accent hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent-deep focus:ring-offset-2 disabled:opacity-70"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>

@@ -79,7 +79,7 @@ export function QuoteForm() {
                     type="text"
                     id={`${formId}-name`}
                     autoComplete="name"
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                   />
                 </div>
                 <div>
@@ -91,7 +91,7 @@ export function QuoteForm() {
                     type="text"
                     id={`${formId}-company`}
                     autoComplete="organization"
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                   />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ export function QuoteForm() {
                     type="email"
                     id={`${formId}-email`}
                     autoComplete="email"
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                   />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export function QuoteForm() {
                     type="tel"
                     id={`${formId}-phone`}
                     autoComplete="tel"
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                   />
                 </div>
               </div>
@@ -135,7 +135,7 @@ export function QuoteForm() {
                     required
                     name="service"
                     id={`${formId}-service`}
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -158,7 +158,7 @@ export function QuoteForm() {
                     name="quantity"
                     type="text"
                     id={`${formId}-quantity`}
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                   />
                 </div>
                 <div>
@@ -168,7 +168,7 @@ export function QuoteForm() {
                   <select
                     name="budget"
                     id={`${formId}-budget`}
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                     defaultValue=""
                   >
                     <option value="">Select a range...</option>
@@ -187,7 +187,7 @@ export function QuoteForm() {
                     name="deadline"
                     type="date"
                     id={`${formId}-deadline`}
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -199,7 +199,7 @@ export function QuoteForm() {
                     name="description"
                     id={`${formId}-description`}
                     rows={5}
-                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                    className="mt-2 block w-full rounded-none border border-line bg-paper-2 px-4 py-3 text-ink focus:border-accent-deep focus:outline-none focus:ring-1 focus:ring-accent-deep"
                     placeholder="Tell us about what you need..."
                   />
                 </div>
@@ -224,7 +224,7 @@ export function QuoteForm() {
                     <div className="mt-4 flex flex-wrap justify-center text-sm leading-6 text-muted">
                       <label
                         htmlFor={`${formId}-file-upload`}
-                        className="relative cursor-pointer rounded-none font-semibold text-accent-deep hover:text-accent focus-within:outline-none focus-within:ring-2 focus-within:ring-accent"
+                        className="relative cursor-pointer rounded-none font-semibold text-accent-deep hover:text-ink focus-within:outline-none focus-within:ring-2 focus-within:ring-accent-deep"
                       >
                         <span>Choose a file</span>
                         <input
@@ -265,7 +265,7 @@ export function QuoteForm() {
                       type="radio"
                       value="email"
                       defaultChecked
-                      className="h-4 w-4 border-line text-accent focus:ring-accent"
+                      className="h-4 w-4 border-line text-accent-deep focus:ring-accent-deep"
                     />
                     <label htmlFor={`${formId}-contact-email`} className="ml-3 block text-sm font-medium text-ink">
                       Email
@@ -277,7 +277,7 @@ export function QuoteForm() {
                       name="contact-method"
                       type="radio"
                       value="phone"
-                      className="h-4 w-4 border-line text-accent focus:ring-accent"
+                      className="h-4 w-4 border-line text-accent-deep focus:ring-accent-deep"
                     />
                     <label htmlFor={`${formId}-contact-phone`} className="ml-3 block text-sm font-medium text-ink">
                       Phone call
@@ -289,7 +289,7 @@ export function QuoteForm() {
                       name="contact-method"
                       type="radio"
                       value="text"
-                      className="h-4 w-4 border-line text-accent focus:ring-accent"
+                      className="h-4 w-4 border-line text-accent-deep focus:ring-accent-deep"
                     />
                     <label htmlFor={`${formId}-contact-text`} className="ml-3 block text-sm font-medium text-ink">
                       Text message
@@ -303,7 +303,7 @@ export function QuoteForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex h-12 w-full items-center justify-center bg-accent px-8 font-display text-base font-semibold uppercase tracking-wide text-ink transition-colors hover:bg-accent-deep hover:text-paper focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:opacity-70 sm:w-auto"
+                className="inline-flex h-12 w-full items-center justify-center bg-accent px-8 font-display text-base font-semibold uppercase tracking-wide text-ink transition-colors hover:bg-accent-deep hover:text-paper focus:outline-none focus:ring-2 focus:ring-accent-deep focus:ring-offset-2 disabled:opacity-70 sm:w-auto"
               >
                 {isSubmitting ? "Submitting..." : "Submit Quote Request"}
               </button>

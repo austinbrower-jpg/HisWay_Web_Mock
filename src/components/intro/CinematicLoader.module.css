@@ -122,7 +122,7 @@
   to { opacity: 0.11; }
 }
 
-.trace { background: linear-gradient(180deg, #fff3e0, #f0c78a); clip-path: inset(0 100% 0 0); }
+.trace { background: linear-gradient(180deg, #fff3e0, #ead79b); clip-path: inset(0 100% 0 0); }
 :global(html[data-hw-intro="full"]) .trace {
   animation:
     traceReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both,
@@ -147,7 +147,7 @@
   opacity: 0;
   filter:
     drop-shadow(0 0 10px var(--color-accent))
-    drop-shadow(0 0 26px rgba(224, 89, 16, 0.55));
+    drop-shadow(0 0 26px rgba(184, 144, 47, 0.55));
 }
 :global(html[data-hw-intro="full"]) .glow {
   animation: glowBloom 0.55s ease 1.3s both;
@@ -183,7 +183,7 @@
   opacity: 0.8;
   filter:
     drop-shadow(0 0 10px var(--color-accent))
-    drop-shadow(0 0 26px rgba(224, 89, 16, 0.55));
+    drop-shadow(0 0 26px rgba(184, 144, 47, 0.55));
 }
 .coreStatic { background: linear-gradient(180deg, #fffaf2, #ffe9cf); }
 
@@ -205,7 +205,7 @@
   );
   box-shadow:
     0 0 10px 3px rgba(255, 224, 170, 0.9),
-    0 0 26px 8px rgba(224, 89, 16, 0.4);
+    0 0 26px 8px rgba(184, 144, 47, 0.4);
   opacity: 0;
 }
 :global(html[data-hw-intro="full"]) .scan {
@@ -224,7 +224,7 @@
   height: 4px;
   border-radius: 50%;
   background: #fff6e6;
-  box-shadow: 0 0 8px 2px rgba(255, 210, 140, 0.9);
+  box-shadow: 0 0 8px 2px rgba(234, 215, 155, 0.9);
   opacity: 0;
 }
 :global(html[data-hw-intro="full"]) .spark.d1 { animation: sparkCore 0.22s ease-out 0.45s both; }
@@ -236,13 +236,13 @@
   100% { opacity: 0; transform: scale(0.4); }
 }
 
-.particle { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #ffd9a0; }
+.particle { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #ead79b; }
 :global(html[data-hw-intro="full"]) .particle.p1 { --dx: -13px; --dy: -11px; animation: sparkFly 0.5s cubic-bezier(0.3, 0.7, 0.4, 1) 0.45s both; }
-:global(html[data-hw-intro="full"]) .particle.p2 { --dx: 11px; --dy: -9px; background: #ffb870; animation: sparkFly 0.52s cubic-bezier(0.3, 0.7, 0.4, 1) 0.45s both; }
+:global(html[data-hw-intro="full"]) .particle.p2 { --dx: 11px; --dy: -9px; background: #d8b75b; animation: sparkFly 0.52s cubic-bezier(0.3, 0.7, 0.4, 1) 0.45s both; }
 :global(html[data-hw-intro="full"]) .particle.p3 { --dx: -10px; --dy: -12px; animation: sparkFly 0.5s cubic-bezier(0.3, 0.7, 0.4, 1) 0.68s both; }
-:global(html[data-hw-intro="full"]) .particle.p4 { --dx: 12px; --dy: -8px; background: #ffb870; animation: sparkFly 0.5s cubic-bezier(0.3, 0.7, 0.4, 1) 0.68s both; }
+:global(html[data-hw-intro="full"]) .particle.p4 { --dx: 12px; --dy: -8px; background: #d8b75b; animation: sparkFly 0.5s cubic-bezier(0.3, 0.7, 0.4, 1) 0.68s both; }
 :global(html[data-hw-intro="full"]) .particle.p5 { --dx: -11px; --dy: -9px; animation: sparkFly 0.5s cubic-bezier(0.3, 0.7, 0.4, 1) 0.92s both; }
-:global(html[data-hw-intro="full"]) .particle.p6 { --dx: 9px; --dy: -13px; background: #ffb870; animation: sparkFly 0.54s cubic-bezier(0.3, 0.7, 0.4, 1) 0.92s both; }
+:global(html[data-hw-intro="full"]) .particle.p6 { --dx: 9px; --dy: -13px; background: #d8b75b; animation: sparkFly 0.54s cubic-bezier(0.3, 0.7, 0.4, 1) 0.92s both; }
 @keyframes sparkFly {
   0% { opacity: 0; transform: translate(0, 0) scale(1); }
   12% { opacity: 1; }

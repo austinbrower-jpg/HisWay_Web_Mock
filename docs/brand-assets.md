@@ -28,7 +28,7 @@ Notes:
 - The artwork is white-on-transparent, so it is only legible on a dark surface such as the footer's `bg-ink`. No panel, filter, or inversion.
 - Unlike the HisWay logos above, this one renders through `next/image` rather than a plain `<img>`. The pixel-fidelity rule that keeps HisWay's artwork out of the optimizer does not buy anything here: the credit renders at 54×18 from a 3000×1000 source, so it is downscaled ~55× regardless. Measured on the footer, the optimizer serves 452 bytes against 111,461 for the raw file — a ~246× saving on every page — for artwork whose detail is invisible at this size.
 - The canvas carries a lot of built-in transparent clear space — the artwork's ink only occupies x 846–2284 and y 114–899 of the 3000×1000 canvas. At the footer's render size that reads as roughly 15px of clear space to the left of the mark and 13px to the right, which is why the credit link sets no horizontal gap of its own. Anything that re-crops or re-pads this asset needs to revisit that spacing.
-- The credit is deliberately secondary to HisWay's branding: small type, muted at 60–70% until hover, and no accent/orange treatment.
+- The credit is deliberately secondary to HisWay's branding: small type, muted at 60–70% until hover, and no accent color treatment.
 
 ## Current placements
 
