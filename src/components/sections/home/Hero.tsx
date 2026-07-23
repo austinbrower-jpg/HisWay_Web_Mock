@@ -20,7 +20,7 @@ export function Hero() {
           <Reveal className="order-1">
             <h1 className="heading-display text-[2rem] sm:text-6xl lg:text-7xl">
               Custom signs, apparel, and promotional products that get your business{" "}
-              <span className="text-accent">seen.</span>
+              <span className="hw-hero-accent-ignite text-accent">seen.</span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-dark sm:mt-6 sm:text-lg">
               From storefront signage and vehicle graphics to branded apparel and promo
@@ -63,6 +63,14 @@ export function Hero() {
             loading="eager"
             marks
             imageClassName={conceptHomepageHero.imageClassName}
+          />
+          <div
+            aria-hidden="true"
+            className="hw-hero-photo-ignite pointer-events-none absolute inset-0 opacity-0 mix-blend-screen"
+            style={{
+              background:
+                "radial-gradient(120% 80% at 56% 40%, rgba(255,196,120,.55) 0%, rgba(224,89,16,.28) 38%, rgba(224,89,16,0) 70%)",
+            }}
           />
           <div className="absolute -bottom-6 right-0 border-4 border-ink bg-accent px-5 py-3 text-ink shadow-lg sm:px-6 sm:py-4 md:-right-4 lg:-right-6">
             <p className="font-display text-sm font-bold uppercase tracking-wider md:text-base">

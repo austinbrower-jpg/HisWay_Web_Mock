@@ -2,8 +2,38 @@ import type { Metadata, Viewport } from "next";
 import { Barlow, Barlow_Condensed, IBM_Plex_Mono } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CinematicLoader } from "@/components/intro/CinematicLoader";
 import { company } from "@/data/company";
 import "./globals.css";
+
+/**
+ * Decides, before first paint, whether the cinematic loader plays this tab
+ * session and which motion profile to use. Rendered as a plain <script> tag
+ * (not next/script) so it is genuinely parser-blocking, executed by the
+ * browser while streaming the server HTML -- next/script's `beforeInteractive`
+ * strategy still routes through Next's client script-loader, which only runs
+ * once hydration starts and does not guarantee execution before first paint.
+ * `<html data-hw-intro>` must be set ahead of any hydration -- the loader
+ * overlay and the homepage hero's ignite CSS (globals.css) both key off this
+ * attribute, so there is no flash of the wrong state.
+ */
+const hwIntroInitScript = `(function () {
+  try {
+    var KEY = "hiswayIntroPlayed";
+    if (sessionStorage.getItem(KEY) === "1") {
+      document.documentElement.setAttribute("data-hw-intro", "none");
+      return;
+    }
+    sessionStorage.setItem(KEY, "1");
+    var reduced = false;
+    try {
+      reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (e) {}
+    document.documentElement.setAttribute("data-hw-intro", reduced ? "reduced" : "full");
+  } catch (e) {
+    document.documentElement.setAttribute("data-hw-intro", "none");
+  }
+})();`;
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -55,6 +85,8 @@ export default function RootLayout({
       <body
         className={`${barlow.variable} ${barlowCondensed.variable} ${plexMono.variable} flex min-h-dvh flex-col antialiased`}
       >
+        <script id="hw-intro-init" dangerouslySetInnerHTML={{ __html: hwIntroInitScript }} />
+        <CinematicLoader />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-accent focus:px-4 focus:py-2 focus:font-medium focus:text-ink"
